@@ -1,3 +1,5 @@
+.idea/
+
 # Environments
 .env
 .venv
@@ -8,7 +10,7 @@ env.bak/
 venv.bak/
 
 ghmap/
-RABBIT/
+/RABBIT/
 
 tests/
 *.conf
