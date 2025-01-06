@@ -1,4 +1,5 @@
 import warnings
+from datetime import datetime
 from importlib.resources import files
 
 import important_features as rabbit_features
@@ -49,6 +50,28 @@ def query_events(contributor, api_key, max_queries=3):
     return events
 
 
+def query_user_type(contributor, api_key):
+    """
+    Query the type of contributor from the GitHub API.
+    """
+    query = f'{QUERY_ROOT}/users/{contributor}'
+    if api_key:
+        headers = {'Authorization': f'token {api_key}'}
+    else:
+        headers = {}
+    response = requests.get(query, headers=headers)
+
+    if response.ok:
+        # Print the remaining number of queries
+        reset_time = datetime.fromtimestamp(int(response.headers['X-RateLimit-Reset'])).strftime('%Y-%m-%d %H:%M:%S')
+        print(f"Querying {contributor} : Remaining queries: {response.headers['X-RateLimit-Remaining']}. It will reset at {reset_time}")
+
+        return response.json()['type']
+    else:
+        print(f"Error while querying {contributor}: {response.status_code}")
+        return 'Invalid'
+
+
 def events_to_activities(events):
     """
     Convert the events to activities using ghmap.
@@ -59,14 +82,14 @@ def events_to_activities(events):
     """
 
     # Step 1: Event to Action Mapping
-    event_to_action_mapping_file = files("src").joinpath("resources/config", "event_to_action.json")
+    event_to_action_mapping_file = files("resources").joinpath("config", "event_to_action.json")
     action_mapping = load_json_file(event_to_action_mapping_file)
     action_mapper = ActionMapper(action_mapping)
 
     actions = action_mapper.map(events)
 
     # Step 2: Actions to Activities Mapping
-    action_to_activity_mapping_file = files("src").joinpath("resources/config", "action_to_activity.json")
+    action_to_activity_mapping_file = files("resources").joinpath("config", "action_to_activity.json")
     activity_mapping = load_json_file(action_to_activity_mapping_file)
     activity_mapper = ActivityMapper(activity_mapping)
 
@@ -150,12 +173,13 @@ def predict_contributor(user, api_key, min_events=5, max_queries=3):
     return contributor_type, confidence
 
 
-def make_predictions(contributors_df, min_events=5, max_queries=3, api_key=None):
+def make_predictions(contributors_df, query_user=True, min_events=5, max_queries=3, api_key=None):
     """
     Predict the type of contributor for each contributor in the DataFrame.
 
     args:
     - contributors_df: DataFrame with the contributors. It should have the column 'contributor'.
+    - query_user: If True, query the type of the user from the GitHub API before predicting (default: True)
     - min_events: Minimum number of events to predict. If not met, prediction = Unknown (default: 5)
     - max_queries: Maximum number of queries to the GitHub API (default: 3)
     - API_KEY: GitHub API key. (Optional)
@@ -164,6 +188,17 @@ def make_predictions(contributors_df, min_events=5, max_queries=3, api_key=None)
 
     """
     for contributor in contributors_df['contributor']:
+        if query_user:
+            contributor_type = query_user_type(contributor, api_key)
+            contributors_df.loc[contributors_df['contributor'] == contributor, 'confidence'] = 1
+            if contributor_type == 'Invalid':
+                # User could not be found
+                contributors_df.loc[contributors_df['contributor'] == contributor, 'type'] = contributor_type
+                continue
+            elif contributor_type == 'Bot':
+                # User is already classified as a bot by GitHub
+                contributors_df.loc[contributors_df['contributor'] == contributor, 'type'] = contributor_type
+                continue
         contributor_type, confidence = predict_contributor(contributor, api_key, min_events, max_queries)
         # Add type and confidence next_to the contributor
         contributors_df.loc[contributors_df['contributor'] == contributor, 'type'] = contributor_type
