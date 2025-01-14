@@ -20,10 +20,9 @@ def query_event_page(contributor, api_key, page):
     The query is `https://api.github.com/users/<contributor>/events?per_page=100&page=<page>`.
     """
     query = f'{QUERY_ROOT}/users/{contributor}/events?per_page=100&page={page}'
+    headers = {}
     if api_key:
-        headers = {'Authorization': f'token {api_key}'}
-    else:
-        headers = {}
+        headers['Authorization'] = f'token {api_key}'
     response = requests.get(query, headers=headers)
 
     if response.ok:
