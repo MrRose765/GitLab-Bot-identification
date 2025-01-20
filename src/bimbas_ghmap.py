@@ -2,12 +2,13 @@ import warnings
 from datetime import datetime
 from importlib.resources import files
 
-from important_features import __stats, __convert_col_type
+import numpy as np
 import pandas as pd
 import requests.exceptions
 from ghmap.mapping.action_mapper import ActionMapper
 from ghmap.mapping.activity_mapper import ActivityMapper
 from ghmap.utils import load_json_file
+from important_features import __stats, __convert_col_type
 from rabbit import get_model, compute_confidence, check_ratelimit
 
 QUERY_ROOT = "https://api.github.com"
@@ -153,15 +154,30 @@ def extract_features(df, contributor):
     - DCAT: time taken to switch activity type (mean, median, std, gini and IQR),
     - NAT: number of activities per type (mean, median, std, gini and IQR).
     """
+    features = ['NA', 'NT', 'NR','NOR','ORR',
+                'NAR_mean', 'NAR_median', 'NAR_std', 'NAR_gini', 'NAR_IQR',
+                'NAT_mean', 'NAT_median', 'NAT_std', 'NAT_gini', 'NAT_IQR',
+                'NCAR_mean', 'NCAR_median', 'NCAR_std', 'NCAR_gini', 'NCAR_IQR',
+                'NTR_mean', 'NTR_median', 'NTR_std', 'NTR_gini', 'NTR_IQR',
+                'DCAR_mean', 'DCAR_median', 'DCAR_std', 'DCAR_gini', 'DCAR_IQR',
+                'DAAR_mean', 'DAAR_median', 'DAAR_std', 'DAAR_gini', 'DAAR_IQR',
+                'DCA_mean', 'DCA_median', 'DCA_std', 'DCA_gini', 'DCA_IQR',
+                'DCAT_mean', 'DCAT_median', 'DCAT_std', 'DCAT_gini', 'DCAT_IQR',
+                ]
+
     df['date'] = pd.to_datetime(df.date, errors='coerce', format='%Y-%m-%dT%H:%M:%S+00:00').dt.tz_localize(None)
     df[['owner', 'repo']] = df.repository.str.split('/', expand=True)
 
     # Extract features using RABBIT extractor
     df_feat = pd.json_normalize(__stats(df), sep='_')
 
+    # Add column 'NR' for Number of Repositories
+    df_feat['NR'] = np.int64(df['repository'].nunique())
+
     df_feat = (
         __convert_col_type(df_feat)
         .rename(columns={'feat_NA':'NA', 'feat_NT':'NT', 'feat_NOR':'NOR', 'feat_ORR':'ORR'})
+        [features] # Reorder the columns
         .sort_index()
         .set_index([[contributor]])
     )
