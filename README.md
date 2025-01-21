@@ -1,1 +1,22 @@
-# Memoire-2025
+# GitLab Bot Identification
+
+
+
+## Terminology
+### Datasets
+- `Old`: Dataset used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
+- `New`: New dataset create for this project which consist of the contributors of the old dataset that
+had at least 5 events on the 5 January 2025.
+- `GitLab`: Dataset from GitLab used in this project. (Not yet created)
+### Activity Mapping
+- `RABBIT`: Activity mapping used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
+- `ghmap`: Activity mapping developed in [ghmap](https://github.com/uhourri/ghmap)
+### Models
+- `BIMBAS`: Trained model used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
+- `BIMBASELINE`: BIMBAS architecture but trained on the new dataset with the activity mapping of RABBIT.
+- `BIMBIS`: BIMBAS architecture but trained on the new dataset with ghmap.
+- `BIMLAB`: BIMBAS architecture but trained on GitLab dataset with ghmap activity mapping.
+### Evaluations
+For the evaluations, we will use a convention. The convention is like `MODEL-DATASET-MAPPING`.  
+For example, `BIMBASELINE-NEW-RABBIT` means the BIMBASELINE model trained on the new dataset with the activity mapping of RABBIT.
+
