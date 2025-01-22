@@ -4,9 +4,9 @@
 
 ## Terminology
 ### Datasets
-- `Old`: Dataset used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
-- `New`: New dataset create for this project which consist of the contributors of the old dataset that
-had at least 5 events on the 5 January 2025.
+- `Old`: Dataset used in [RABBIT-Replication Package](https://github.com/natarajan-chidambaram/BIMBAS_RABBIT_replication_package)
+- `New`: New dataset create for this project which consist of the contributors of the old dataset who
+had at least 5 events on January 5, 2025.
 - `GitLab`: Dataset from GitLab used in this project. (Not yet created)
 ### Activity Mapping
 - `rbmap`: Activity mapping used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
