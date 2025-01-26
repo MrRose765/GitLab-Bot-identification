@@ -1,4 +1,6 @@
+import time
 from abc import abstractmethod
+from datetime import datetime
 
 import numpy as np
 import pandas as pd
@@ -45,9 +47,22 @@ class APIManager:
             events.extend(new_events)
 
             if len(new_events) < 100:
-
                 break
         return events
+
+    @staticmethod
+    def wait_reset(reset_time):
+        """
+        Wait until the reset time of the API.
+
+        Parameters:
+            reset_time: The reset time of the API in the format '%Y-%m-%d %H:%M:%S'
+        """
+        # TODO: Check if we need a reset overhead time like in rabbit.
+        reset_time = datetime.strptime(reset_time, '%Y-%m-%d %H:%M:%S')
+        time_diff = (reset_time - datetime.now()).total_seconds()
+        print(f"Waiting for {time_diff} seconds until the reset time.")
+        time.sleep(time_diff)
 
     @abstractmethod
     def events_to_activities(self, events):

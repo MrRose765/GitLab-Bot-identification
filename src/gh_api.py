@@ -26,7 +26,6 @@ class GitHubManager(APIManager):
         response = requests.get(query, headers=headers)
 
         if response.ok:
-            # Return the events as a list of dictionaries
             return response.json()
         else:
             print(f"Error while querying {contributor}: {response.status_code}")
@@ -43,14 +42,11 @@ class GitHubManager(APIManager):
         response = requests.get(query, headers=headers)
 
         if response.ok:
-            # Print the remaining number of queries
-            reset_time = datetime.fromtimestamp(int(response.headers['X-RateLimit-Reset'])).strftime(
-                '%Y-%m-%d %H:%M:%S')
-            print(
-                f"Querying {contributor} : Remaining queries: {response.headers['X-RateLimit-Remaining']}. It will reset at {reset_time}")
-
-            rb.check_ratelimit(int(response.headers['X-RateLimit-Remaining']), int(response.headers['X-RateLimit-Reset']),
-                            4)
+            query_remaining = int(response.headers['X-RateLimit-Remaining'])
+            if query_remaining < self.max_queries:
+                reset_time = (datetime.fromtimestamp(int(response.headers['X-RateLimit-Reset']))
+                    .strftime('%Y-%m-%d %H:%M:%S'))
+                self.wait_reset(reset_time)
 
             return response.json()['type']
         else:
