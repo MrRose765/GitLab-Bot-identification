@@ -22,7 +22,7 @@ class GitLabManager(APIManager):
 
             if response.ok:
                 # Return the events as a list of dictionaries
-                return response.json()
+                return response.json(), response.headers
             elif response.status_code == 429:
                 print("Rate limit exceeded", end=' ')
                 reset_time = (datetime.fromtimestamp(int(response.headers['RateLimit-Reset']))
@@ -32,6 +32,48 @@ class GitLabManager(APIManager):
                 print(f"Error while querying {contributor}: {response.status_code}")
                 return []
 
+        def _check_events_left(self, events, headers):
+            """
+            Check if there are events left to query from the GitLab API.
+            """
+            if 'X-Next-Page' in headers or len(events) == 100:
+                return True
+            return False
+
+        def query_user_type(self, contributor_id):
+            """
+            Query the type of contributor from the GitLab API.
+            """
+            if not self.api_key:
+                print("API key is required to query user type.")
+                return None
+            query = f'{self.query_root}/users/{contributor_id}'
+            headers = {}
+            if self.api_key:
+                headers['Private-Token'] = self.api_key
+            response = requests.get(query, headers=headers)
+
+            if response.ok:
+                return response.json()['bot']
+            else:
+                print(f"Error while querying {contributor_id}: {response.status_code}")
+                return None
+
+        def query_user_id(self, contributor):
+            """
+            Query the id of contributor from the GitLab API.
+            """
+            query = f'{self.query_root}/users?username={contributor}'
+            headers = {}
+            if self.api_key:
+                headers['Private-Token'] = self.api_key
+            response = requests.get(query, headers=headers)
+
+            if response.ok:
+                return response.json()[0]['id']
+            else:
+                print(f"Error while querying {contributor}: {response.status_code}")
+                return None
 
         def events_to_activities(self, events):
             """
@@ -44,8 +86,12 @@ class GitLabManager(APIManager):
             raise NotImplementedError("Method not implemented")
 
 if __name__ == '__main__':
-    user = 'louciole'
-    gl_manager = GitLabManager()
-    events = gl_manager.query_events(user)
-    print(f"Number of events: {len(events)}")
-    print(events[0])
+    user = 'Louciole'
+    api_key = 'glpat-x-N-DUbxABov6fwMALBr'
+    gl_manager = GitLabManager(api_key)
+    id = gl_manager.query_user_id(user)
+    # pretty print the response
+    print(id)
+
+    type_ = gl_manager.query_user_type(id)
+    print(type_)

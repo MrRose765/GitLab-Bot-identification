@@ -26,10 +26,16 @@ class GitHubManager(APIManager):
         response = requests.get(query, headers=headers)
 
         if response.ok:
-            return response.json()
+            return response.json(), response.headers
         else:
             print(f"Error while querying {contributor}: {response.status_code}")
             return []
+
+    def _check_events_left(self, events, headers):
+        """
+        Check if there are events left to query from the GitHub API.
+        """
+        return len(events) == 100
 
     def query_user_type(self, contributor):
         """

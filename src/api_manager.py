@@ -33,6 +33,8 @@ class APIManager:
 
         Returns:
             A list of dictionaries corresponding to the events of a contributor
+            The headers of the response
+
         """
         pass
 
@@ -43,12 +45,27 @@ class APIManager:
         """
         events = []
         for page in range(1, self.max_queries + 1):
-            new_events = self._query_event_page(contributor, page)
+            new_events, headers = self._query_event_page(contributor, page)
             events.extend(new_events)
 
-            if len(new_events) < 100:
+            if not self._check_events_left(new_events, headers):
                 break
         return events
+
+    # Function to check if there are events left
+    @abstractmethod
+    def _check_events_left(self, events, headers):
+        """
+        Abstract method to check if there are events left to query. Useful to adapt to the API used.
+
+        Parameters:
+            events: A list of dictionaries corresponding to the events of a contributor
+            headers: The headers of the response
+
+        Returns:
+            True if there are events left, False otherwise
+        """
+        pass
 
     @staticmethod
     def wait_reset(reset_time):
