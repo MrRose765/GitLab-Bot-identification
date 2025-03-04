@@ -416,6 +416,197 @@
           ]
         }
       ]
+    },
+    {
+      "name": "UpdateProjectMembership",
+      "time_window": "0s",
+      "actions": [
+        {
+          "action": "JoinProject",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "LeftProject",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "ExpireProjectMembership",
+          "optional": true,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "ManageDesigns",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "AddDesign",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "UpdateDesign",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "RemoveDesign",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CommentDesign",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateDesignComment",
+          "optional": false,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateDesignComment",
+              "fields": [
+                {
+                  "field": "design.id",
+                  "target_field": "design.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateMilestone",
+      "time_window": "0s",
+      "actions": [
+        {
+          "action": "CreateMilestone",
+          "optional": false,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "CloseMilestone",
+      "time_window": "0s",
+      "actions": [
+        {
+          "action": "CloseMilestone",
+          "optional": false,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "DestroyMilestone",
+      "time_window": "0s",
+      "actions": [
+        {
+          "action": "DestroyMilestone",
+          "optional": false,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "CommentSnippet",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateSnippetComment",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateSnippetComment",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateSnippetCommentWithThread",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateSnippetCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateSnippetComment",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateSnippetCommentWithThread",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateWorkItems",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateWorkItem",
+          "optional": false,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CloseWorkItems",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CloseWorkItem",
+          "optional": false,
+          "repeat": true
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CloseWorkItem",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "work_item.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -469,7 +469,14 @@
         "action_name": "added"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
       }
     },
     "RemoveDesign": {
@@ -478,7 +485,14 @@
         "action_name": "removed"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
       }
     },
     "CreateDesignComment": {
@@ -490,7 +504,18 @@
         }
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "filename": "target_title"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
       }
     },
     "UpdateDesign": {
@@ -499,7 +524,14 @@
         "action_name": "updated"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
       }
     },
     "CreateMilestone": {
@@ -508,7 +540,14 @@
         "action_name": "opened"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
       }
     },
     "CloseMilestone": {
@@ -517,7 +556,14 @@
         "action_name": "closed"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
       }
     },
     "DestroyMilestone": {
@@ -526,7 +572,14 @@
         "action_name": "destroyed"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
       }
     },
     "CreateSnippetComment": {
@@ -538,7 +591,17 @@
         }
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "snippet": {
+            "id": "note.noteable_id",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
       }
     },
     "CreateSnippetCommentWithThread": {
@@ -550,7 +613,17 @@
         }
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "snippet": {
+            "id": "note.noteable_id",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
       }
     },
     "CreateWorkItem": {
@@ -559,7 +632,14 @@
         "action_name": "opened"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "work_item": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
       }
     },
     "CloseWorkItem": {
@@ -568,7 +648,14 @@
         "action_name": "closed"
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "work_item": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
       }
     },
     "CreateProject": {
