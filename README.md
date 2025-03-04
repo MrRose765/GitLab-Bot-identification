@@ -14,11 +14,13 @@ had at least 5 events on January 5, 2025.
 - `glmap`: Activity mapping developed in this project for GitLab dataset. (based on [ghmap](https://github.com/uhourri/ghmap))
 
 ### Models
-- `BIMBAS`: pre-trained model from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
-- `BIMBASELINE`: BIMBAS architecture but trained on the new dataset with rbmap.
-- `BIMBIS`: BIMBAS architecture but trained on the new dataset with ghmap.
-- `BIMLAB`: BIMBAS architecture but trained on GitLab dataset with ghmap activity mapping.
-### Evaluations
-For the evaluations, we will use a convention. The convention is like `MODEL-DATASET-MAPPING`.  
-For example, `BIMBASELINE-New-rbmap` means the BIMBASELINE model tested on the new dataset with rbmap.
+Each model is based on the bimbas architecture from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT).  
+To be clear, we will use the following convention to describe the models : `bimbas-M-D` where M is the mapping used and D is the training dataset.
+Then, the models that are used in this project are:
 
+- `BIMBAS`: `bimbas-rbmap-Old`  (Pretrained from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT))
+- `BIMBASELINE`: `bimbas-rbmap-New`
+- `BIMBIS`: `bimbas-ghmap-New`
+- `BIMLAB`: `bimbas-ghmap-GitLab`
+
+For example, `BIMBIS` is a model that has the architecture of **BIMBAS** but trained on the **new dataset** with the ghmap **activity mapping**.
