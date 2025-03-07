@@ -23,6 +23,17 @@
       ]
     },
     {
+      "name": "CommentWikiPages",
+      "time_window": "3600s",
+      "actions": [
+        {
+          "action": "CreateWikiPageComment",
+          "optional": false,
+          "repeat": true
+        }
+      ]
+    },
+    {
       "name": "AcceptMergeRequest",
       "time_window": "4s",
       "actions": [
@@ -109,17 +120,54 @@
           "action": "CreateCommitCommentWithThread",
           "optional": true,
           "repeat": true
+        },
+        {
+          "action": "CreateCommitReviewComment",
+          "optional": true,
+          "repeat": true
         }
       ]
     },
     {
       "name": "CreateIssue",
-      "time_window": "0s",
+      "time_window": "3s",
       "actions": [
         {
           "action": "CreateIssue",
           "optional": false,
           "repeat": false
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateIssueCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -174,6 +222,38 @@
           "action": "CreateMergeRequest",
           "optional": false,
           "repeat": false
+        },
+        {
+          "action": "CreateMergeRequestComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateMergeRequest",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateMergeRequestCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateMergeRequest",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -199,15 +279,6 @@
                   "target_field": "merge_request.id"
                 }
               ]
-            },
-            {
-              "target_action": "CreateMergeRequestCommentWithThread",
-              "fields": [
-                {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
-                }
-              ]
             }
           ]
         },
@@ -218,15 +289,6 @@
           "validate_with": [
             {
               "target_action": "CloseMergeRequest",
-              "fields": [
-                {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
-                }
-              ]
-            },
-            {
-              "target_action": "CreateMergeRequestComment",
               "fields": [
                 {
                   "field": "merge_request.id",
@@ -352,18 +414,18 @@
     },
     {
       "name": "PushCommits",
-      "time_window": "2s",
+      "time_window": "0s",
       "actions": [
         {
           "action": "PushCommits",
           "optional": false,
-          "repeat": true
+          "repeat": false
         }
       ]
     },
     {
       "name": "ReviewMergeRequest",
-      "time_window": "300s",
+      "time_window": "5s",
       "actions": [
         {
           "action": "ApproveMergeRequest",
@@ -380,7 +442,7 @@
               ]
             },
             {
-              "target_action": "ApproveMergeRequest",
+              "target_action": "CreateMergeRequestCommentWithThread",
               "fields": [
                 {
                   "field": "merge_request.id",
@@ -412,6 +474,49 @@
                   "target_field": "merge_request.id"
                 }
               ]
+            },
+            {
+              "target_action": "CreateMergeRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateMergeRequestCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateMergeRequestReviewComment",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "ApproveMergeRequest",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateMergeRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "merge_request.id",
+                  "target_field": "merge_request.id"
+                }
+              ]
             }
           ]
         }
@@ -435,6 +540,17 @@
           "action": "ExpireProjectMembership",
           "optional": true,
           "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "ImportProjects",
+      "time_window": "3600s",
+      "actions": [
+        {
+          "action": "ImportProject",
+          "optional": false,
+          "repeat": true
         }
       ]
     },
@@ -571,18 +687,34 @@
       ]
     },
     {
-      "name": "CreateWorkItems",
-      "time_window": "300s",
+      "name": "CreateWorkItem",
+      "time_window": "3s",
       "actions": [
         {
           "action": "CreateWorkItem",
           "optional": false,
           "repeat": true
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateWorkItem",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "work_item.id"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "name": "CloseWorkItems",
+      "name": "CloseWorkItem",
       "time_window": "3s",
       "actions": [
         {

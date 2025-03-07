@@ -388,6 +388,31 @@
         }
       }
     },
+    "CreateWikiPageComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "WikiPage::Meta"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "wiki_page": {
+            "title": "target_title",
+            "slug": "wiki_page.slug",
+            "format": "wiki_page.format",
+            "id": "target_id",
+            "iid": "target_iid"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
     "PushCommits": {
       "event": {
         "action_name": "pushed to",
@@ -460,7 +485,20 @@
         }
       },
       "attributes": {
-        "include_common_fields": true
+        "include_common_fields": true,
+        "details": {
+          "commit": {
+            "name": "target_title"
+          },
+          "review": {
+            "file": "note.position.new_path",
+            "line": "note.position.new_line"
+          },
+          "commit_review_comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
       }
     },
     "AddDesign": {
@@ -661,6 +699,14 @@
     "CreateProject": {
       "event": {
         "action_name": "created"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "ImportProject": {
+      "event": {
+        "action_name": "imported"
       },
       "attributes": {
         "include_common_fields": true
