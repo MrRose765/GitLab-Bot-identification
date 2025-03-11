@@ -216,7 +216,7 @@
     },
     {
       "name": "CreateMergeRequest",
-      "time_window": "0s",
+      "time_window": "3s",
       "actions": [
         {
           "action": "CreateMergeRequest",
