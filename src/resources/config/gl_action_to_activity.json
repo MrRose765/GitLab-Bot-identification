@@ -34,11 +34,11 @@
       ]
     },
     {
-      "name": "AcceptMergeRequest",
+      "name": "MergePullRequest",
       "time_window": "4s",
       "actions": [
         {
-          "action": "AcceptMergeRequest",
+          "action": "MergePullRequest",
           "optional": false,
           "repeat": false
         },
@@ -60,11 +60,11 @@
       ]
     },
     {
-      "name": "CreateProject",
+      "name": "CreateRepository",
       "time_window": "3s",
       "actions": [
         {
-          "action": "CreateProject",
+          "action": "CreateRepository",
           "optional": false,
           "repeat": false
         },
@@ -215,41 +215,41 @@
       ]
     },
     {
-      "name": "CreateMergeRequest",
+      "name": "CreatePullRequest",
       "time_window": "3s",
       "actions": [
         {
-          "action": "CreateMergeRequest",
+          "action": "CreatePullRequest",
           "optional": false,
           "repeat": false
         },
         {
-          "action": "CreateMergeRequestComment",
+          "action": "CreatePullRequestComment",
           "optional": true,
           "repeat": false,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequest",
+              "target_action": "CreatePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
           ]
         },
         {
-          "action": "CreateMergeRequestCommentWithThread",
+          "action": "CreatePullRequestCommentWithThread",
           "optional": true,
           "repeat": false,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequest",
+              "target_action": "CreatePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
@@ -258,41 +258,41 @@
       ]
     },
     {
-      "name": "CloseMergeRequest",
+      "name": "ClosePullRequest",
       "time_window": "3s",
       "actions": [
         {
-          "action": "CloseMergeRequest",
+          "action": "ClosePullRequest",
           "optional": false,
           "repeat": false
         },
         {
-          "action": "CreateMergeRequestComment",
+          "action": "CreatePullRequestComment",
           "optional": true,
           "repeat": false,
           "validate_with": [
             {
-              "target_action": "CloseMergeRequest",
+              "target_action": "ClosePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
           ]
         },
         {
-          "action": "CreateMergeRequestCommentWithThread",
+          "action": "CreatePullRequestCommentWithThread",
           "optional": true,
           "repeat": false,
           "validate_with": [
             {
-              "target_action": "CloseMergeRequest",
+              "target_action": "ClosePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
@@ -357,54 +357,54 @@
       ]
     },
     {
-      "name": "CommentMergeRequest",
+      "name": "CommentPullRequest",
       "time_window": "300s",
       "actions": [
         {
-          "action": "CreateMergeRequestComment",
+          "action": "CreatePullRequestComment",
           "optional": true,
           "repeat": true,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequestComment",
+              "target_action": "CreatePullRequestComment",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "CreateMergeRequestCommentWithThread",
+              "target_action": "CreatePullRequestCommentWithThread",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
           ]
         },
         {
-          "action": "CreateMergeRequestCommentWithThread",
+          "action": "CreatePullRequestCommentWithThread",
           "optional": true,
           "repeat": true,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequestComment",
+              "target_action": "CreatePullRequestComment",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "CreateMergeRequestCommentWithThread",
+              "target_action": "CreatePullRequestCommentWithThread",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
@@ -424,97 +424,97 @@
       ]
     },
     {
-      "name": "ReviewMergeRequest",
+      "name": "ReviewPullRequest",
       "time_window": "5s",
       "actions": [
         {
-          "action": "ApproveMergeRequest",
+          "action": "ApprovePullRequest",
           "optional": true,
           "repeat": false,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequestReviewComment",
+              "target_action": "CreatePullRequestReviewComment",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "CreateMergeRequestCommentWithThread",
+              "target_action": "CreatePullRequestCommentWithThread",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
           ]
         },
         {
-          "action": "CreateMergeRequestReviewComment",
+          "action": "CreatePullRequestReviewComment",
           "optional": true,
           "repeat": true,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequestReviewComment",
+              "target_action": "CreatePullRequestReviewComment",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "ApproveMergeRequest",
+              "target_action": "ApprovePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "CreateMergeRequestCommentWithThread",
+              "target_action": "CreatePullRequestCommentWithThread",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
           ]
         },
         {
-          "action": "CreateMergeRequestCommentWithThread",
+          "action": "CreatePullRequestCommentWithThread",
           "optional": true,
           "repeat": true,
           "validate_with": [
             {
-              "target_action": "CreateMergeRequestReviewComment",
+              "target_action": "CreatePullRequestReviewComment",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "ApproveMergeRequest",
+              "target_action": "ApprovePullRequest",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             },
             {
-              "target_action": "CreateMergeRequestCommentWithThread",
+              "target_action": "CreatePullRequestCommentWithThread",
               "fields": [
                 {
-                  "field": "merge_request.id",
-                  "target_field": "merge_request.id"
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
                 }
               ]
             }
@@ -523,32 +523,32 @@
       ]
     },
     {
-      "name": "UpdateProjectMembership",
+      "name": "UpdateRepositoryMembership",
       "time_window": "0s",
       "actions": [
         {
-          "action": "JoinProject",
+          "action": "JoinRepository",
           "optional": true,
           "repeat": false
         },
         {
-          "action": "LeftProject",
+          "action": "LeftRepository",
           "optional": true,
           "repeat": false
         },
         {
-          "action": "ExpireProjectMembership",
+          "action": "ExpireRepositoryMembership",
           "optional": true,
           "repeat": false
         }
       ]
     },
     {
-      "name": "ImportProjects",
+      "name": "ImportRepositories",
       "time_window": "3600s",
       "actions": [
         {
-          "action": "ImportProject",
+          "action": "ImportRepository",
           "optional": false,
           "repeat": true
         }

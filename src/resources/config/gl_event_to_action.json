@@ -93,7 +93,7 @@
         }
       }
     },
-    "AcceptMergeRequest": {
+    "MergePullRequest": {
       "event": {
         "type": "MergeRequest",
         "action_name": "accepted"
@@ -101,7 +101,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "target_id",
             "iid": "target_iid",
             "title": "target_title"
@@ -109,7 +109,7 @@
         }
       }
     },
-    "ApproveMergeRequest": {
+    "ApprovePullRequest": {
       "event": {
         "type": "MergeRequest",
         "action_name": "approved"
@@ -117,7 +117,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "target_id",
             "iid": "target_iid",
             "title": "target_title"
@@ -125,7 +125,7 @@
         }
       }
     },
-    "CreateMergeRequest": {
+    "CreatePullRequest": {
       "event": {
         "type": "MergeRequest",
         "action_name": "opened"
@@ -133,7 +133,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "target_id",
             "iid": "target_iid",
             "title": "target_title"
@@ -141,7 +141,7 @@
         }
       }
     },
-    "CloseMergeRequest": {
+    "ClosePullRequest": {
       "event": {
         "type": "MergeRequest",
         "action_name": "closed"
@@ -149,7 +149,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "target_id",
             "iid": "target_iid",
             "title": "target_title"
@@ -157,7 +157,7 @@
         }
       }
     },
-    "CreateMergeRequestComment": {
+    "CreatePullRequestComment": {
       "event": {
         "type": "Note",
         "action_name": "commented on",
@@ -168,7 +168,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "note.noteable_id",
             "iid": "note.noteable_iid",
             "title": "target_title"
@@ -180,7 +180,7 @@
         }
       }
     },
-    "CreateMergeRequestCommentWithThread": {
+    "CreatePullRequestCommentWithThread": {
       "event": {
         "type": "DiscussionNote",
         "action_name": "commented on",
@@ -191,7 +191,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "note.noteable_id",
             "iid": "note.noteable_iid",
             "title": "target_title"
@@ -203,7 +203,7 @@
         }
       }
     },
-    "CreateMergeRequestReviewComment": {
+    "CreatePullRequestReviewComment": {
       "event": {
         "type": "DiffNote",
         "action_name": "commented on",
@@ -214,7 +214,7 @@
       "attributes": {
         "include_common_fields": true,
         "details": {
-          "merge_request": {
+          "pull_request": {
             "id": "note.noteable_id",
             "iid": "note.noteable_iid",
             "title": "target_title"
@@ -230,7 +230,7 @@
         }
       }
     },
-    "JoinProject": {
+    "JoinRepository": {
       "event": {
         "action_name": "joined"
       },
@@ -238,7 +238,7 @@
         "include_common_fields": true
       }
     },
-    "ExpireProjectMembership": {
+    "ExpireRepositoryMembership": {
       "event": {
         "action_name": "removed due to membership expiration from"
       },
@@ -246,7 +246,7 @@
         "include_common_fields": true
       }
     },
-    "LeftProject": {
+    "LeftRepository": {
       "event": {
         "action_name": "left"
       },
@@ -696,7 +696,7 @@
         }
       }
     },
-    "CreateProject": {
+    "CreateRepository": {
       "event": {
         "action_name": "created"
       },
@@ -704,7 +704,7 @@
         "include_common_fields": true
       }
     },
-    "ImportProject": {
+    "ImportRepository": {
       "event": {
         "action_name": "imported"
       },
