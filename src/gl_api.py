@@ -6,15 +6,27 @@ from src.api_manager import APIManager
 
 
 class GitLabManager(APIManager):
-        def __init__(self, api_key=None, max_queries=3):
+        def __init__(self, api_key=None, max_queries=3, before=None, after=None):
+            """
+            Initialize the GitLab API manager.
+
+            Parameters:
+                api_key: The API key to access the GitLab API
+                max_queries: The maximum number of queries to be made to the GitLab API
+                before: The date before which events are queried. (Format: YYYY-MM-DD)
+                after: The date after which events are queried. (Format: YYYY-MM-DD)
+            """
             super().__init__(api_key, max_queries)
             self.query_root = 'https://gitlab.com/api/v4'
+            # Query parameters
+            self.before = "&before=" + before if before else ""
+            self.after = "&after=" + after if after else ""
 
         def _query_event_page(self, contributor, page):
             """
             Query a page of events of a contributor from the GitLab API.
             """
-            query = f'{self.query_root}/users/{contributor}/events?per_page=100&page={page}'
+            query = f'{self.query_root}/users/{contributor}/events?per_page=100&page={page}{self.before}{self.after}'
             headers = {}
             if self.api_key:
                 headers['Private-Token'] = self.api_key
@@ -87,11 +99,13 @@ class GitLabManager(APIManager):
 
 if __name__ == '__main__':
     user = 'Louciole'
-    api_key = 'glpat-x-N-DUbxABov6fwMALBr'
-    gl_manager = GitLabManager(api_key)
+    api_key = None
+    gl_manager = GitLabManager(api_key, before="2024-11-30", after="2024-11-28")
     id = gl_manager.query_user_id(user)
     # pretty print the response
     print(id)
 
-    type_ = gl_manager.query_user_type(id)
-    print(type_)
+    events = gl_manager.query_events(user)
+    print(f"Number of events: {len(events)}")
+    for event in events:
+        print(event['created_at'])
