@@ -45,7 +45,7 @@
         {
           "action": "PushCommits",
           "optional": true,
-          "repeat": true
+          "repeat": false
         },
         {
           "action": "DeleteBranch",
@@ -598,37 +598,25 @@
       ]
     },
     {
-      "name": "CreateMilestone",
-      "time_window": "0s",
-      "actions": [
-        {
-          "action": "CreateMilestone",
-          "optional": false,
-          "repeat": false
-        }
-      ]
-    },
-    {
-      "name": "CloseMilestone",
-      "time_window": "0s",
-      "actions": [
-        {
-          "action": "CloseMilestone",
-          "optional": false,
-          "repeat": false
-        }
-      ]
-    },
-    {
-      "name": "DestroyMilestone",
-      "time_window": "0s",
-      "actions": [
-        {
-          "action": "DestroyMilestone",
-          "optional": false,
-          "repeat": false
-        }
-      ]
+      "name": "ManageMilestones",
+        "time_window": "3s",
+        "actions": [
+          {
+            "action": "CreateMilestone",
+            "optional": true,
+            "repeat": true
+          },
+          {
+            "action": "CloseMilestone",
+            "optional": true,
+            "repeat": true
+          },
+          {
+            "action": "DestroyMilestone",
+            "optional": true,
+            "repeat": true
+          }
+        ]
     },
     {
       "name": "CommentSnippet",
@@ -693,7 +681,7 @@
         {
           "action": "CreateWorkItem",
           "optional": false,
-          "repeat": true
+          "repeat": false
         },
         {
           "action": "CreateIssueComment",
@@ -720,7 +708,7 @@
         {
           "action": "CloseWorkItem",
           "optional": false,
-          "repeat": true
+          "repeat": false
         },
         {
           "action": "CreateIssueComment",

@@ -446,7 +446,7 @@
         "include_common_fields": true,
         "details": {
           "commit": {
-            "name": "target_title"
+            "title": "target_title"
           },
           "commit_comment": {
             "id": "note.id",
@@ -467,7 +467,7 @@
         "include_common_fields": true,
         "details": {
           "commit": {
-            "name": "target_title"
+            "title": "target_title"
           },
           "commit_comment": {
             "id": "note.id",
@@ -488,7 +488,7 @@
         "include_common_fields": true,
         "details": {
           "commit": {
-            "name": "target_title"
+            "title": "target_title"
           },
           "review": {
             "file": "note.position.new_path",
