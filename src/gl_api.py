@@ -1,6 +1,11 @@
+import json
 from datetime import datetime
+from importlib.resources import files
 
 import requests
+from ghmap.mapping.action_mapper import ActionMapper
+from ghmap.mapping.activity_mapper import ActivityMapper
+from ghmap.utils import load_json_file
 
 from src.api_manager import APIManager
 
@@ -21,6 +26,8 @@ class GitLabManager(APIManager):
             # Query parameters
             self.before = "&before=" + before if before else ""
             self.after = "&after=" + after if after else ""
+
+            self.repo_mapping = {}
 
         def _query_event_page(self, contributor, page):
             """
@@ -71,9 +78,9 @@ class GitLabManager(APIManager):
                 print(f"Error while querying {contributor_id}: {response.status_code}")
                 return None
 
-        def query_user_id(self, contributor):
+        def query_user_info(self, contributor):
             """
-            Query the id of contributor from the GitLab API.
+            Query the information of contributor from the GitLab API. (ID, username, name, state, ...)
             """
             query = f'{self.query_root}/users?username={contributor}'
             headers = {}
@@ -82,10 +89,41 @@ class GitLabManager(APIManager):
             response = requests.get(query, headers=headers)
 
             if response.ok:
-                return response.json()[0]['id']
+                return response.json()
             else:
                 print(f"Error while querying {contributor}: {response.status_code}")
                 return None
+
+        def _query_repo_info(self, project_id):
+            """
+            Query the information of a project from the GitLab API.
+            """
+            query = f'{self.query_root}/projects/{project_id}'
+            headers = {}
+            if self.api_key:
+                headers['Private-Token'] = self.api_key
+            response = requests.get(query, headers=headers)
+
+            if response.ok:
+                return response.json()
+            else:
+                print(f"Error while querying {project_id}: {response.status_code}")
+                return None
+
+        def _get_repo_owner(self, activity):
+            """
+            Get the owner of the repository where the activity was done.
+            """
+            project_id = activity['repository']['id']
+            if project_id in self.repo_mapping:
+                return self.repo_mapping[project_id]
+
+            project_info = self._query_repo_info(project_id)
+            if project_info:
+                # Can be a user or a group (ex: gitlab-org)
+                owner = project_info['namespace']['path']
+                self.repo_mapping[project_id] = owner
+                return owner
 
         def events_to_activities(self, events):
             """
@@ -94,18 +132,41 @@ class GitLabManager(APIManager):
             Parameters:
                 events: A list of dictionaries corresponding to the events of a contributor
             """
-            # Error if called
-            raise NotImplementedError("Method not implemented")
+            # Step 1: Event to Action Mapping
+            event_to_action_file = files("src").joinpath("resources/config", "gl_event_to_action.json")
+            action_mapping = load_json_file(event_to_action_file)
+            action_mapper = ActionMapper(action_mapping)
+
+            actions = action_mapper.map(events)
+
+            # Step 2: Action to Activity Mapping
+            action_to_activity_file = files("src").joinpath("resources/config", "gl_action_to_activity.json")
+            activity_mapping = load_json_file(action_to_activity_file)
+            activity_mapper = ActivityMapper(activity_mapping)
+
+            activities = activity_mapper.map(actions)
+
+            return activities
+
 
 if __name__ == '__main__':
-    user = 'Louciole'
+    import model_utils as mod
+
+    user = 'imagebuilder-bot'
     api_key = None
     gl_manager = GitLabManager(api_key, before="2024-11-30", after="2024-11-28")
-    id = gl_manager.query_user_id(user)
+    id = gl_manager.query_user_info(user)[0]['id']
     # pretty print the response
     print(id)
 
-    events = gl_manager.query_events(user)
-    print(f"Number of events: {len(events)}")
-    for event in events:
-        print(event['created_at'])
+    # project_info = gl_manager._query_repo_info(278964)
+
+    # Predict the type of contributor
+    features = gl_manager.compute_features(user)
+
+    # Load the model
+    model = mod.load_model("resources/models/bimbas.joblib")
+
+    label, confidence = mod.predict_contributor(features, model)
+
+    print(f"Contributor {user} is a {label} with a confidence of {confidence}")

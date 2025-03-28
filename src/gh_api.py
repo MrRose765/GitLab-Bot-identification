@@ -37,6 +37,12 @@ class GitHubManager(APIManager):
         """
         return len(events) == 100
 
+    def _get_repo_owner(self, activity):
+        """
+        Get the owner of the repository where the activity took place.
+        """
+        return activity['repository']['name'].split('/')[0]
+
     def query_user_type(self, contributor):
         """
         Query the type of contributor from the GitHub API.
@@ -58,7 +64,6 @@ class GitHubManager(APIManager):
         else:
             print(f"Error while querying {contributor}: {response.status_code}")
             return 'Invalid'
-
 
     def events_to_activities(self, events):
         """
@@ -88,13 +93,14 @@ class GitHubManager(APIManager):
         return activities
 
 if __name__ == '__main__':
+    import model_utils as mod
+
     KEY = None
+    contributor = 'MrRose765'
     gh_api = GitHubManager(KEY)
 
-    # Test the query_events method
-    raw_events = gh_api.query_events('MrRose765')
-    print(len(raw_events))
-    print(raw_events[0])
+    features = gh_api.compute_features(contributor)
 
-    features = gh_api.compute_features('MrRose765')
-    print(features)
+    model = mod.load_model("resources/models/bimbas.joblib")
+    label, confidence = mod.predict_contributor(features, model)
+    print(f"Contributor {contributor} is a {label} with confidence {confidence}")

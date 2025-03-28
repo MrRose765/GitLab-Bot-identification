@@ -17,7 +17,6 @@ class APIManager:
         max_queries: The maximum number of pages to query
     """
 
-
     def __init__(self, api_key, max_queries=3):
         self.api_key = api_key
         self.max_queries = max_queries
@@ -94,8 +93,20 @@ class APIManager:
         """
         pass
 
-    @staticmethod
-    def activity_to_df(activities):
+    @abstractmethod
+    def _get_repo_owner(self, activity):
+        """
+        Abstract method to get the owner of the repository where the activity was done.
+
+        Parameters:
+            activity: A dictionary corresponding to the activity of a contributor
+
+        Returns:
+            str: The owner of the repository
+        """
+        pass
+
+    def activity_to_df(self, activities):
         """
         Convert the activities to a DataFrame compatible with the RABBIT feature extractor.
 
@@ -103,7 +114,8 @@ class APIManager:
         - 'date'
         - 'activity'
         - 'contributor'
-        - 'repository' (shape: 'owner/repo')
+        - 'repository` (id)
+        - 'owner`
 
         Parameters:
             activities: A list of dictionaries corresponding to the activities of a contributor
@@ -117,11 +129,13 @@ class APIManager:
                 activity['start_date'],
                 activity['activity'],
                 activity['actor']['login'],
-                activity['repository']['name']
+                activity['repository']['id']
             ]], columns=['date', 'activity', 'contributor', 'repository'])
+            new_row['owner'] = self._get_repo_owner(activity)
             activities_df = pd.concat([activities_df, new_row], ignore_index=True)
         activities_df['date'] = (pd.to_datetime(activities_df['date'], errors='coerce', format='%Y-%m-%dT%H:%M:%SZ')
                                  .dt.tz_localize(None))
+
         return activities_df
 
     @staticmethod
@@ -132,7 +146,7 @@ class APIManager:
         (NR, DCA_iqr, NAR_std, NTR_IQR, NCAR_median, NCAR_gini, DCAR_gini).
 
         args:
-        - df: activity DataFrame with the columns 'date', 'activity', 'contributor' and 'repository (owner/repo)'
+        - df: activity DataFrame with the columns 'date', 'activity', 'contributor', 'repository' (id) and 'owner'
 
         returns: A DataFrame with the features extracted from the user's activities
 
@@ -163,7 +177,6 @@ class APIManager:
                     ]
 
         df['date'] = pd.to_datetime(df.date, errors='coerce', format='%Y-%m-%dT%H:%M:%S+00:00').dt.tz_localize(None)
-        df[['owner', 'repo']] = df.repository.str.split('/', expand=True)
 
         # Extract features using RABBIT extractor
         df_feat = pd.json_normalize(stats(df), sep='_')
