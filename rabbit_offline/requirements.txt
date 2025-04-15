@@ -1,0 +1,4 @@
+git+https://github.com/natarajan-chidambaram/RABBIT
+joblib~=1.4.2
+numpy~=2.1.2
+pandas~=2.2.3
