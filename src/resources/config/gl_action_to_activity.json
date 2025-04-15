@@ -414,12 +414,12 @@
     },
     {
       "name": "PushCommits",
-      "time_window": "0s",
+      "time_window": "2s",
       "actions": [
         {
           "action": "PushCommits",
           "optional": false,
-          "repeat": false
+          "repeat": true
         }
       ]
     },
