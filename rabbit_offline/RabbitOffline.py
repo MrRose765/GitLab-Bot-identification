@@ -1,13 +1,13 @@
 import json
 import warnings
 
-import joblib
 import numpy as np
 import pandas as pd
 from ExtractEvent import unpackJson
 from GenerateActivities import activity_identification
 from important_features import __stats as stats, __convert_col_type as convert_col_type
-from rabbit import compute_confidence
+from rabbit import compute_confidence, get_model
+
 
 def _events_to_activities(raw_events):
     """
@@ -103,7 +103,7 @@ def predict(df_feat):
     Returns:
         A tuple with the contributor type and the confidence
     """
-    model = joblib.load("bimbas.joblib")
+    model = get_model()
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", category=UserWarning)
         proba = model.predict_proba(df_feat)
