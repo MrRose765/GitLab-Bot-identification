@@ -1,18 +1,22 @@
 from datetime import datetime
 from importlib.resources import files
 
-import rabbit as rb
+import pandas as pd
+import requests
+from ExtractEvent import unpackJson
+from GenerateActivities import activity_identification
 from ghmap.mapping.action_mapper import ActionMapper
 from ghmap.mapping.activity_mapper import ActivityMapper
 from ghmap.utils import load_json_file
 
 from src.api_manager import APIManager
-import requests
+
 
 class GitHubManager(APIManager):
 
-    def __init__(self, api_key=None, max_queries=3):
-        super().__init__(api_key, max_queries)
+    def __init__(self, api_key=None, max_queries=3, min_events=5, ghmap=True):
+        super().__init__(api_key, max_queries, min_events)
+        self.ghmap = ghmap
         self.query_root = 'https://api.github.com'
 
     def _query_event_page(self, contributor, page):
@@ -65,17 +69,18 @@ class GitHubManager(APIManager):
             print(f"Error while querying {contributor}: {response.status_code}")
             return 'Invalid'
 
-    def events_to_activities(self, events):
-        """
-        Convert the events to activities using ghmap.
+    @staticmethod
+    def __rabbit_activity_mapping(events):
+        raw_events = unpackJson(events)
+        df_events = pd.DataFrame.from_dict(raw_events, orient='columns')
+        df_events['created_at'] = pd.to_datetime(df_events.created_at, errors='coerce',
+                                                 format='%Y-%m-%dT%H:%M:%SZ').dt.tz_localize(None)
+        df_events = df_events.sort_values(by='created_at')
 
-        Parameters:
-            events: A list of dictionaries corresponding to the events of a contributor
+        return activity_identification(df_events)
 
-        Returns:
-            A list of dictionaries corresponding to the activities of a contributor
-        """
-
+    @staticmethod
+    def __ghmap_activity_mapping(events):
         # Step 1: Event to Action Mapping
         event_to_action_mapping_file = files("src").joinpath("resources/config", "event_to_action.json")
         action_mapping = load_json_file(event_to_action_mapping_file)
@@ -91,6 +96,22 @@ class GitHubManager(APIManager):
         activities = activity_mapper.map(actions)
 
         return activities
+
+    def events_to_activities(self, events):
+        """
+        Convert the events to activities using ghmap.
+
+        Parameters:
+            events: A list of dictionaries corresponding to the events of a contributor
+
+        Returns:
+            A list of dictionaries corresponding to the activities of a contributor
+        """
+        if self.ghmap:
+            return self.__ghmap_activity_mapping(events)
+        else:
+            return self.__rabbit_activity_mapping(events)
+
 
 if __name__ == '__main__':
     import model_utils as mod
