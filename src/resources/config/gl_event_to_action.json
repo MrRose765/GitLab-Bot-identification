@@ -1,7 +1,8 @@
 {
   "parameters": {
-    "event_type": "target_type",
-    "tqdm_disable": true
+    "event_type_key": "target_type",
+    "create_at_key": "created_at",
+    "progress_bar": false
   },
   "common_fields": {
     "event_id": "id",

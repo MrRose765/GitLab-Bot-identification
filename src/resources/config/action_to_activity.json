@@ -1,5 +1,5 @@
 {
-    "tqdm_disable": true,
+    "progress_bar": false,
     "activities": [
       {
         "name": "MakeRepositoryPublic",

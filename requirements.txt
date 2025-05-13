@@ -1,0 +1,12 @@
+git+https://github.com/natarajan-chidambaram/RABBIT
+git+https://github.com/MrRose765/glmap
+joblib~=1.4.2
+numpy~=2.1.2
+pandas~=2.2.3
+requests~=2.32.3
+pandas~=2.2.3
+scikit-learn~=1.5.2
+matplotlib~=3.10.0
+seaborn~=0.13.2
+tqdm~=4.66.5
+joblib~=1.4.2
