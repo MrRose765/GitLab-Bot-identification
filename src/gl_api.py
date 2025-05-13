@@ -49,7 +49,7 @@ class GitLabManager(APIManager):
                 self.wait_reset(reset_time)
             else:
                 print(f"Error while querying {contributor}: {response.status_code}")
-                return []
+                return [], response.headers
 
         def _check_events_left(self, events, headers):
             """
@@ -152,12 +152,13 @@ class GitLabManager(APIManager):
 if __name__ == '__main__':
     import model_utils as mod
 
-    user = 'imagebuilder-bot'
+    #user = 'imagebuilder-bot'
+    user = 1786152
     api_key = None
-    gl_manager = GitLabManager(api_key, before="2024-11-30", after="2024-11-28")
-    id = gl_manager.query_user_info(user)[0]['id']
+    gl_manager = GitLabManager(api_key,  before="2025-01-21", after="2024-10-21")
+    #id = gl_manager.query_user_info(user)[0]['id']
     # pretty print the response
-    print(id)
+    #print(id)
 
     # project_info = gl_manager._query_repo_info(278964)
 

@@ -15,11 +15,13 @@ class APIManager:
     Attributes:
         api_key: The API key to use the API
         max_queries: The maximum number of pages to query
+        min_events: The minimum number of events to query
     """
 
-    def __init__(self, api_key, max_queries=3):
+    def __init__(self, api_key, max_queries=3, min_events=5):
         self.api_key = api_key
         self.max_queries = max_queries
+        self.min_events = min_events
 
     @abstractmethod
     def _query_event_page(self, contributor, page):
@@ -46,7 +48,6 @@ class APIManager:
         for page in range(1, self.max_queries + 1):
             new_events, headers = self._query_event_page(contributor, page)
             events.extend(new_events)
-
             if not self._check_events_left(new_events, headers):
                 break
         return events
@@ -200,6 +201,9 @@ class APIManager:
         Compute the features of a contributor.
         """
         events = self.query_events(contributor)
+        if len(events) < self.min_events:
+            return None
+
         activities = self.events_to_activities(events)
         activities_df = self.activity_to_df(activities)
         features = self._extract_features(activities_df, contributor)
