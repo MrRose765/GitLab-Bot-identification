@@ -1,0 +1,732 @@
+{
+  "tqdm_disable": true,
+  "activities": [
+    {
+      "name": "ManageWikiPages",
+      "time_window": "3600s",
+      "actions": [
+        {
+          "action": "CreateWikiPage",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "DestroyWikiPage",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "UpdateWikiPage",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CommentWikiPages",
+      "time_window": "3600s",
+      "actions": [
+        {
+          "action": "CreateWikiPageComment",
+          "optional": false,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "MergePullRequest",
+      "time_window": "4s",
+      "actions": [
+        {
+          "action": "MergePullRequest",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "PushCommits",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "DeleteBranch",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "CloseIssue",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CreateRepository",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreateRepository",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreateBranch",
+          "optional": true,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "ManageBranches",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreateBranch",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "DeleteBranch",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "ManageTags",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreateTag",
+          "optional": "true",
+          "repeat": "true"
+        },
+        {
+          "action": "DeleteTag",
+          "optional": "true",
+          "repeat": "true"
+        }
+      ]
+    },
+    {
+      "name": "CommentCommits",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateCommitComment",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "CreateCommitCommentWithThread",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "CreateCommitReviewComment",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CreateIssue",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreateIssue",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateIssueCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CloseIssue",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CloseIssue",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CloseIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateIssueCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CloseIssue",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreatePullRequest",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreatePullRequest",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreatePullRequestComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreatePullRequestCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClosePullRequest",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "ClosePullRequest",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreatePullRequestComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "ClosePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreatePullRequestCommentWithThread",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "ClosePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CommentIssue",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateIssueComment",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateIssueCommentWithThread",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateIssueCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateIssueComment",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateIssueCommentWithThread",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "issue.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CommentPullRequest",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreatePullRequestComment",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequestComment",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreatePullRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreatePullRequestCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequestComment",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreatePullRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PushCommits",
+      "time_window": "2s",
+      "actions": [
+        {
+          "action": "PushCommits",
+          "optional": false,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "ReviewPullRequest",
+      "time_window": "5s",
+      "actions": [
+        {
+          "action": "ApprovePullRequest",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequestReviewComment",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreatePullRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreatePullRequestReviewComment",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequestReviewComment",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "ApprovePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreatePullRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreatePullRequestCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreatePullRequestReviewComment",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "ApprovePullRequest",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreatePullRequestCommentWithThread",
+              "fields": [
+                {
+                  "field": "pull_request.id",
+                  "target_field": "pull_request.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UpdateRepositoryMembership",
+      "time_window": "0s",
+      "actions": [
+        {
+          "action": "JoinRepository",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "LeftRepository",
+          "optional": true,
+          "repeat": false
+        },
+        {
+          "action": "ExpireRepositoryMembership",
+          "optional": true,
+          "repeat": false
+        }
+      ]
+    },
+    {
+      "name": "ImportRepositories",
+      "time_window": "3600s",
+      "actions": [
+        {
+          "action": "ImportRepository",
+          "optional": false,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "ManageDesigns",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "AddDesign",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "UpdateDesign",
+          "optional": true,
+          "repeat": true
+        },
+        {
+          "action": "RemoveDesign",
+          "optional": true,
+          "repeat": true
+        }
+      ]
+    },
+    {
+      "name": "CommentDesign",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateDesignComment",
+          "optional": false,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateDesignComment",
+              "fields": [
+                {
+                  "field": "design.id",
+                  "target_field": "design.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ManageMilestones",
+        "time_window": "3s",
+        "actions": [
+          {
+            "action": "CreateMilestone",
+            "optional": true,
+            "repeat": true
+          },
+          {
+            "action": "CloseMilestone",
+            "optional": true,
+            "repeat": true
+          },
+          {
+            "action": "DestroyMilestone",
+            "optional": true,
+            "repeat": true
+          }
+        ]
+    },
+    {
+      "name": "CommentSnippet",
+      "time_window": "300s",
+      "actions": [
+        {
+          "action": "CreateSnippetComment",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateSnippetComment",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateSnippetCommentWithThread",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "CreateSnippetCommentWithThread",
+          "optional": true,
+          "repeat": true,
+          "validate_with": [
+            {
+              "target_action": "CreateSnippetComment",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            },
+            {
+              "target_action": "CreateSnippetCommentWithThread",
+              "fields": [
+                {
+                  "field": "snippet.id",
+                  "target_field": "snippet.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CreateWorkItem",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CreateWorkItem",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CreateWorkItem",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "work_item.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CloseWorkItem",
+      "time_window": "3s",
+      "actions": [
+        {
+          "action": "CloseWorkItem",
+          "optional": false,
+          "repeat": false
+        },
+        {
+          "action": "CreateIssueComment",
+          "optional": true,
+          "repeat": false,
+          "validate_with": [
+            {
+              "target_action": "CloseWorkItem",
+              "fields": [
+                {
+                  "field": "issue.id",
+                  "target_field": "work_item.id"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

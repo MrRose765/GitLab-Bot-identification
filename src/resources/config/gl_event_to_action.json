@@ -1,0 +1,724 @@
+{
+  "parameters": {
+    "event_type": "target_type",
+    "tqdm_disable": true
+  },
+  "common_fields": {
+    "event_id": "id",
+    "date": "created_at",
+    "actor": {
+      "id": "author.id",
+      "login": "author.username"
+    },
+    "repository": {
+      "id": "project_id"
+    }
+  },
+  "actions": {
+    "CreateIssue": {
+      "event": {
+        "type": "Issue",
+        "action_name": "opened"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "issue": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CloseIssue": {
+      "event": {
+        "type": "Issue",
+        "action_name": "closed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "issue": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CreateIssueComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Issue"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "issue": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreateIssueCommentWithThread": {
+      "event": {
+        "type": "DiscussionNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Issue"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "issue": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "MergePullRequest": {
+      "event": {
+        "type": "MergeRequest",
+        "action_name": "accepted"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "ApprovePullRequest": {
+      "event": {
+        "type": "MergeRequest",
+        "action_name": "approved"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CreatePullRequest": {
+      "event": {
+        "type": "MergeRequest",
+        "action_name": "opened"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "ClosePullRequest": {
+      "event": {
+        "type": "MergeRequest",
+        "action_name": "closed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CreatePullRequestComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "MergeRequest"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreatePullRequestCommentWithThread": {
+      "event": {
+        "type": "DiscussionNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "MergeRequest"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreatePullRequestReviewComment": {
+      "event": {
+        "type": "DiffNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "MergeRequest"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "pull_request": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "title": "target_title"
+          },
+          "review": {
+            "file": "note.position.new_path",
+            "line_range": "note.position.line_range"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "JoinRepository": {
+      "event": {
+        "action_name": "joined"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "ExpireRepositoryMembership": {
+      "event": {
+        "action_name": "removed due to membership expiration from"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "LeftRepository": {
+      "event": {
+        "action_name": "left"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "CreateTag": {
+      "event": {
+        "action_name": "pushed new",
+        "push_data": {
+          "action": "created",
+          "ref_type": "tag"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "tag": {
+            "name": "push_data.ref",
+            "count": "push_data.ref_count"
+          }
+        }
+      }
+    },
+    "DeleteTag": {
+      "event": {
+        "action_name": "deleted",
+        "push_data": {
+          "ref_type": "tag"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "tag": {
+            "name": "push_data.ref",
+            "count": "push_data.ref_count"
+          }
+        }
+      }
+    },
+    "CreateBranch": {
+      "event": {
+        "action_name": "pushed new",
+        "push_data": {
+          "ref_type": "branch",
+          "action": "created"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "branch": {
+            "name": "push_data.ref",
+            "count": "push_data.ref_count"
+          },
+          "commit": {
+            "id": "push_data.commit_to",
+            "title": "push_data.commit_title",
+            "count": "push_data.commit_count"
+          }
+        }
+      }
+    },
+    "DeleteBranch": {
+      "event": {
+        "action_name": "deleted",
+        "push_data": {
+          "ref_type": "branch"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "branch": {
+            "name": "push_data.ref",
+            "count": "push_data.ref_count"
+          },
+          "commit": {
+            "id": "push_data.commit_to",
+            "title": "push_data.commit_title",
+            "count": "push_data.commit_count"
+          }
+        }
+      }
+    },
+    "CreateWikiPage": {
+      "event": {
+        "type": "WikiPage::Meta",
+        "action_name": "created"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "wiki_page": {
+            "title": "target_title",
+            "slug": "wiki_page.slug",
+            "format": "wiki_page.format",
+            "id": "target_id",
+            "iid": "target_iid"
+          }
+        }
+      }
+    },
+    "DestroyWikiPage": {
+      "event": {
+        "type": "WikiPage::Meta",
+        "action_name": "destroyed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "wiki_page": {
+            "title": "target_title",
+            "slug": "wiki_page.slug",
+            "format": "wiki_page.format",
+            "id": "target_id",
+            "iid": "target_iid"
+          }
+        }
+      }
+    },
+    "UpdateWikiPage": {
+      "event": {
+        "type": "WikiPage::Meta",
+        "action_name": "updated"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "wiki_page": {
+            "title": "target_title",
+            "slug": "wiki_page.slug",
+            "format": "wiki_page.format",
+            "id": "target_id",
+            "iid": "target_iid"
+          }
+        }
+      }
+    },
+    "CreateWikiPageComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "WikiPage::Meta"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "wiki_page": {
+            "title": "target_title",
+            "slug": "wiki_page.slug",
+            "format": "wiki_page.format",
+            "id": "target_id",
+            "iid": "target_iid"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "PushCommits": {
+      "event": {
+        "action_name": "pushed to",
+        "push_data": {
+          "action": "pushed"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "commit": {
+            "id": "push_data.commit_to",
+            "title": "push_data.commit_title",
+            "count": "push_data.commit_count"
+          },
+          "branch": {
+            "name": "push_data.ref"
+          }
+        }
+      }
+    },
+    "CreateCommitComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Commit"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "commit": {
+            "title": "target_title"
+          },
+          "commit_comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreateCommitCommentWithThread": {
+      "event": {
+        "type": "DiscussionNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Commit"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "commit": {
+            "title": "target_title"
+          },
+          "commit_comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreateCommitReviewComment": {
+      "event": {
+        "type": "DiffNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Commit"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "commit": {
+            "title": "target_title"
+          },
+          "review": {
+            "file": "note.position.new_path",
+            "line": "note.position.new_line"
+          },
+          "commit_review_comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "AddDesign": {
+      "event": {
+        "type": "DesignManagement::Design",
+        "action_name": "added"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
+      }
+    },
+    "RemoveDesign": {
+      "event": {
+        "type": "DesignManagement::Design",
+        "action_name": "removed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
+      }
+    },
+    "CreateDesignComment": {
+      "event": {
+        "type": "DiffNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "DesignManagement::Design"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "note.noteable_id",
+            "iid": "note.noteable_iid",
+            "filename": "target_title"
+          },
+          "comment": {
+            "id": "note.id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "UpdateDesign": {
+      "event": {
+        "type": "DesignManagement::Design",
+        "action_name": "updated"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "design": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "filename": "target_title"
+          }
+        }
+      }
+    },
+    "CreateMilestone": {
+      "event": {
+        "type": "Milestone",
+        "action_name": "opened"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CloseMilestone": {
+      "event": {
+        "type": "Milestone",
+        "action_name": "closed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "DestroyMilestone": {
+      "event": {
+        "type": "Milestone",
+        "action_name": "destroyed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "milestone": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CreateSnippetComment": {
+      "event": {
+        "type": "Note",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Snippet"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "snippet": {
+            "id": "note.noteable_id",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreateSnippetCommentWithThread": {
+      "event": {
+        "type": "DiscussionNote",
+        "action_name": "commented on",
+        "note": {
+          "noteable_type": "Snippet"
+        }
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "snippet": {
+            "id": "note.noteable_id",
+            "title": "target_title"
+          },
+          "comment": {
+            "id": "target_id",
+            "body": "note.body"
+          }
+        }
+      }
+    },
+    "CreateWorkItem": {
+      "event": {
+        "type": "WorkItem",
+        "action_name": "opened"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "work_item": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CloseWorkItem": {
+      "event": {
+        "type": "WorkItem",
+        "action_name": "closed"
+      },
+      "attributes": {
+        "include_common_fields": true,
+        "details": {
+          "work_item": {
+            "id": "target_id",
+            "iid": "target_iid",
+            "title": "target_title"
+          }
+        }
+      }
+    },
+    "CreateRepository": {
+      "event": {
+        "action_name": "created"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "ImportRepository": {
+      "event": {
+        "action_name": "imported"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    },
+    "UnknownAction": {
+      "event": {
+        "type": "*"
+      },
+      "attributes": {
+        "include_common_fields": true
+      }
+    }
+  }
+}
