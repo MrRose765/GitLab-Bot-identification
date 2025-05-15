@@ -7,23 +7,26 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-This project is divided into two parts:
-1. **gitbot_utils**: This package contains the utils modules to fetch events from GitHub or GitLab, 
-compute the activity mapping predict if a user is a bot or not.
+The dependencies of this project are divided into two parts:
+1. **gitbot_utils**: This package contains utility modules to fetch events from GitHub or GitLab,
+compute activity mappings, and predict whether a user is a bot or not.
 2. Notebooks: Mainly contains analysis and experiments.
+
+You can only install the dependencies `gitbot_utils` if you are not interested in the notebooks.
+Be aware that installing only notebook dependencies will not be enough to run some of the notebooks.
 
 ### Install gitbot_utils
 ```bash
 pip install src/
 ```
 
-### Install dependencies
+### Install dependencies for notebooks
 ```bash
 cd src/notebooks
 pip install -r requirements.txt
 ```
 
-This requirements file contains the dependencies used only in the notebooks. (Maily for plotting)
+*Note*: The `requirements.txt` file contains the dependencies used only in the notebooks. (Maily for plotting)
 
 
 ## Terminology
@@ -45,6 +48,6 @@ Then, the models that are used in this project are:
 - `BIMBAS`: `bimbas-rbmap-Old`  (Pretrained from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT))
 - `BIMBASELINE`: `bimbas-rbmap-New`
 - `BIMBIS`: `bimbas-ghmap-New`
-- `BIMLAB`: `bimbas-ghmap-GitLab`
+- `BIMLAB`: `bimbas-glmap-GitLab`
 
 For example, `BIMBIS` is a model that has the architecture of **BIMBAS** but trained on the **new dataset** with the ghmap **activity mapping**.
