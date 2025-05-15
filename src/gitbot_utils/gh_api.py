@@ -8,8 +8,7 @@ from GenerateActivities import activity_identification
 from ghmap.mapping.action_mapper import ActionMapper
 from ghmap.mapping.activity_mapper import ActivityMapper
 from ghmap.utils import load_json_file
-
-from src.api_manager import APIManager
+from .api_manager import APIManager
 
 
 class GitHubManager(APIManager):
@@ -82,14 +81,14 @@ class GitHubManager(APIManager):
     @staticmethod
     def __ghmap_activity_mapping(events):
         # Step 1: Event to Action Mapping
-        event_to_action_mapping_file = files("src").joinpath("resources/config", "event_to_action.json")
+        event_to_action_mapping_file = files("gitbot_utils").joinpath("config", "event_to_action.json")
         action_mapping = load_json_file(event_to_action_mapping_file)
         action_mapper = ActionMapper(action_mapping)
 
         actions = action_mapper.map(events)
 
         # Step 2: Actions to Activities Mapping
-        action_to_activity_mapping_file = files("src").joinpath("resources/config", "action_to_activity.json")
+        action_to_activity_mapping_file = files("gitbot_utils").joinpath("config", "action_to_activity.json")
         activity_mapping = load_json_file(action_to_activity_mapping_file)
         activity_mapper = ActivityMapper(activity_mapping)
 
@@ -114,14 +113,13 @@ class GitHubManager(APIManager):
 
 
 if __name__ == '__main__':
-    import model_utils as mod
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
 
-    KEY = None
+    KEY = os.getenv('GITHUB_API_KEY')
     contributor = 'MrRose765'
     gh_api = GitHubManager(KEY)
 
     features = gh_api.compute_features(contributor)
-
-    model = mod.load_model("resources/models/bimbas.joblib")
-    label, confidence = mod.predict_contributor(features, model)
-    print(f"Contributor {contributor} is a {label} with confidence {confidence}")
+    print(features)

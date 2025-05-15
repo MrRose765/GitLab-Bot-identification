@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 from importlib.resources import files
 
@@ -7,7 +6,7 @@ from ghmap.mapping.action_mapper import ActionMapper
 from ghmap.mapping.activity_mapper import ActivityMapper
 from ghmap.utils import load_json_file
 
-from src.api_manager import APIManager
+from .api_manager import APIManager
 
 
 class GitLabManager(APIManager):
@@ -133,14 +132,14 @@ class GitLabManager(APIManager):
                 events: A list of dictionaries corresponding to the events of a contributor
             """
             # Step 1: Event to Action Mapping
-            event_to_action_file = files("src").joinpath("resources/config", "gl_event_to_action.json")
+            event_to_action_file = files("gitbot_utils").joinpath("config", "gl_event_to_action.json")
             action_mapping = load_json_file(event_to_action_file)
             action_mapper = ActionMapper(action_mapping)
 
             actions = action_mapper.map(events)
 
             # Step 2: Action to Activity Mapping
-            action_to_activity_file = files("src").joinpath("resources/config", "gl_action_to_activity.json")
+            action_to_activity_file = files("gitbot_utils").joinpath("config", "gl_action_to_activity.json")
             activity_mapping = load_json_file(action_to_activity_file)
             activity_mapper = ActivityMapper(activity_mapping)
 
@@ -150,11 +149,12 @@ class GitLabManager(APIManager):
 
 
 if __name__ == '__main__':
-    import model_utils as mod
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
 
-    #user = 'imagebuilder-bot'
-    user = 1786152
-    api_key = None
+    user = 'louciole'
+    api_key = os.getenv('GITLAB_API_KEY')
     gl_manager = GitLabManager(api_key,  before="2025-01-21", after="2024-10-21")
     #id = gl_manager.query_user_info(user)[0]['id']
     # pretty print the response
@@ -164,10 +164,4 @@ if __name__ == '__main__':
 
     # Predict the type of contributor
     features = gl_manager.compute_features(user)
-
-    # Load the model
-    model = mod.load_model("resources/models/bimbas.joblib")
-
-    label, confidence = mod.predict_contributor(features, model)
-
-    print(f"Contributor {user} is a {label} with a confidence of {confidence}")
+    print(features)

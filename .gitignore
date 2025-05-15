@@ -1,4 +1,6 @@
 .idea/
+*.egg-info/
+__pycache__/
 
 # Environments
 .env

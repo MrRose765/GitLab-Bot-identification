@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitbot_utils"
+version = "0.1.0"
+description = "Modules for GitHub/GitLab API management and bot detection"
+authors = [
+    { name = "Moreau Cyril", email = "cyril.moreau@student.umons.ac.be" }
+]
+license = { text = "MIT" }
+dependencies = [
+    "RABBIT @ git+https://github.com/natarajan-chidambaram/RABBIT#egg=RABBIT",
+    "ghmap @ git+https://github.com/MrRose765/glmap@compatibility#egg=ghmap",
+    "numpy>=2.1.2",
+    "pandas>=2.2.3",
+    "requests>=2.32.3",
+    "joblib>=1.4.2",
+    "dotenv>=0.9.9"
+]
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+gitbot_utils = [
+    "config/event_to_action.json",
+    "config/action_to_activity.json",
+    "config/gl_event_to_action.json",
+    "config/gl_action_to_activity.json",
+]
