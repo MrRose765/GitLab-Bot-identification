@@ -26,7 +26,7 @@ cd src/notebooks
 pip install -r requirements.txt
 ```
 
-*Note*: The `requirements.txt` file contains the dependencies used only in the notebooks. (Maily for plotting)
+*Note*: The `requirements.txt` file contains the dependencies used only in the notebooks. (Mainly for plotting)
 
 
 ## Terminology
