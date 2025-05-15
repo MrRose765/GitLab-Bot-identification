@@ -1,5 +1,29 @@
 # GitLab Bot Identification
 
+## Installation
+It is recommended to create a virtual environment to install the dependencies.
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+This project is divided into two parts:
+1. **gitbot_utils**: This package contains the utils modules to fetch events from GitHub or GitLab, 
+compute the activity mapping predict if a user is a bot or not.
+2. Notebooks: Mainly contains analysis and experiments.
+
+### Install gitbot_utils
+```bash
+pip install src/
+```
+
+### Install dependencies
+```bash
+cd src/notebooks
+pip install -r requirements.txt
+```
+
+This requirements file contains the dependencies used only in the notebooks. (Maily for plotting)
 
 
 ## Terminology
