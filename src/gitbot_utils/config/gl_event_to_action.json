@@ -71,7 +71,7 @@
         }
       }
     },
-    "CreateIssueCommentWithThread": {
+    "CreateIssueThread": {
       "event": {
         "type": "DiscussionNote",
         "action_name": "commented on",
@@ -181,7 +181,7 @@
         }
       }
     },
-    "CreatePullRequestCommentWithThread": {
+    "CreatePullRequestThread": {
       "event": {
         "type": "DiscussionNote",
         "action_name": "commented on",
@@ -456,7 +456,7 @@
         }
       }
     },
-    "CreateCommitCommentWithThread": {
+    "CreateCommitThread": {
       "event": {
         "type": "DiscussionNote",
         "action_name": "commented on",
@@ -643,7 +643,7 @@
         }
       }
     },
-    "CreateSnippetCommentWithThread": {
+    "CreateSnippetThread": {
       "event": {
         "type": "DiscussionNote",
         "action_name": "commented on",
