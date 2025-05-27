@@ -26,11 +26,16 @@ if __name__ == '__main__':
 
     key = os.getenv('GITLAB_API_KEY')
     gl_manager = GitLabManager(api_key=key, max_queries=3, before="2025-01-21", after="2024-10-21")
-    folder = '../tests/gitlab_dataset/human_events'
+    folder = '../tests/gitlab_dataset/bot_heuristic_events'
 
     skipped = []
     # Load the dataset
-    dataset = pd.read_csv("../resources/data/gitlab-dataset/human_labelled.csv")
+    df_features = pd.read_csv("../resources/data/gitlab/gitlab_glmap_features.csv")
+    dataset_bot = pd.read_csv("../resources/data/gitlab/bot_heuristic_labelled.csv")
+
+    # Get bots where username not in df_features
+    dataset = dataset_bot[~dataset_bot['username'].isin(df_features['contributor'])]
+
 
     for user in tqdm(dataset['id'], desc="Fetching events", unit="user"):
         # Fetch and save events

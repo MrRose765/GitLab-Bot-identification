@@ -1,6 +1,8 @@
 import json
 import os
+
 import pandas as pd
+from tqdm import tqdm
 
 from gitbot_utils.gl_api import GitLabManager
 
@@ -16,11 +18,11 @@ def compute_features(manager, user_events, username):
 
 if __name__ == '__main__':
     gl_manager = GitLabManager()
-    file = 'gitlab_bot_features.csv'
+    file = 'gitlab_features_glmap.csv'
 
-    bots = pd.read_csv("src/resources/data/gitlab-dataset/bot_labelled.csv")
+    dataset = pd.read_csv("../resources/data/gitlab/dataset.csv")
 
-    df_feat = pd.DataFrame(columns=['contributor','label',
+    columns = ['contributor','label', 'origin',
                       'NA', 'NT', 'NR', 'NOR', 'ORR',
                       'NAR_mean', 'NAR_median', 'NAR_std', 'NAR_gini', 'NAR_IQR',
                       'NAT_mean', 'NAT_median', 'NAT_std', 'NAT_gini', 'NAT_IQR',
@@ -30,21 +32,39 @@ if __name__ == '__main__':
                       'DAAR_mean', 'DAAR_median', 'DAAR_std', 'DAAR_gini', 'DAAR_IQR',
                       'DCA_mean', 'DCA_median', 'DCA_std', 'DCA_gini', 'DCA_IQR',
                       'DCAT_mean', 'DCAT_median', 'DCAT_std', 'DCAT_gini', 'DCAT_IQR',
-                      ])
-    for i, row in bots.iterrows():
+                      ]
+    df_feat = pd.DataFrame(columns=columns)
+
+    # tqdm with iterrows
+    for i, row in tqdm(dataset.iterrows(), total=len(dataset), desc="Processing users", unit="user"):
         username = row['username']
-        # Read events from json file
-        if not os.path.exists(f"src/tests/gitlab_dataset/bot_events/{username}.json"):
+        path = '../tests/gitlab_dataset/'
+        if row['origin'] == 'human':
+            path += f'human_events/{username}.json'
+        elif row['origin'] == 'bot-heuristic':
+            path += f'bot_heuristic_events/{username}.json'
+        else:
+            path += f'github_common_events/{username}.json'
+
+        if not os.path.exists(path):
+            print(f"File {path} does not exist for user {username}. Skipping...")
             continue
-        with open(f"src/tests/gitlab_dataset/bot_events/{username}.json", "r") as f:
+
+        with open(path, "r") as f:
             user_events = json.load(f)
 
         # Compute features
         features = compute_features(gl_manager, user_events, username)
         features['contributor'] = username
         features['label'] = row['label']
+        features['origin'] = row['origin']
+        # Reorder columns to match the original DataFrame
+        features = features[columns]
 
-        df_feat = pd.concat([df_feat, features], ignore_index=True)
+        if df_feat.empty:
+            df_feat = features
+        else:
+            df_feat = pd.concat([df_feat, features], ignore_index=True)
 
 
     # Save features to csv file
