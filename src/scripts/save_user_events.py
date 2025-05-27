@@ -26,19 +26,19 @@ if __name__ == '__main__':
 
     key = os.getenv('GITLAB_API_KEY')
     gl_manager = GitLabManager(api_key=key, max_queries=3, before="2025-01-21", after="2024-10-21")
-    folder = '../tests/gitlab_dataset/bot_events'
+    folder = '../tests/gitlab_dataset/human_events'
 
     skipped = []
     # Load the dataset
-    dataset = pd.read_csv("../resources/data/gitlab-dataset/bot_labelled.csv")
+    dataset = pd.read_csv("../resources/data/gitlab-dataset/human_labelled.csv")
 
-    for user in tqdm(dataset['username'], desc="Fetching events", unit="user"):
+    for user in tqdm(dataset['id'], desc="Fetching events", unit="user"):
         # Fetch and save events
         res = fetch_and_save(gl_manager, user, folder)
         if not res:
             skipped.append(user)
 
     # Save skipped users to a file
-    with open("skipped_users.txt", "w") as f:
+    with open("skipped_humans.txt", "w") as f:
         for user in skipped:
             f.write(f"{user}\n")
