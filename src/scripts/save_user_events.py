@@ -7,7 +7,7 @@ from gitbot_utils.gl_api import GitLabManager
 
 def fetch_and_save(manager, username, folder):
     """
-    Fetch events for a given username and save them to a CSV file.
+    Fetch events for a given username and save them to a json file.
     """
     events = manager.query_events(username)
     if events and len(events) >= manager.min_events:
