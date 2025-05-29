@@ -141,7 +141,7 @@ class APIManager:
         return activities_df
 
     @staticmethod
-    def _extract_features(df, contributor):
+    def extract_features(df, contributor):
         """
         Extract the features from the activities of a user.
         It uses the same features as the RABBIT feature extractor but does not remove some features
@@ -207,5 +207,5 @@ class APIManager:
 
         activities = self.events_to_activities(events)
         activities_df = self.activity_to_df(activities)
-        features = self._extract_features(activities_df, contributor)
+        features = self.extract_features(activities_df, contributor)
         return features
