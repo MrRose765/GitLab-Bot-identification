@@ -18,10 +18,11 @@ class APIManager:
         min_events: The minimum number of events to query
     """
 
-    def __init__(self, api_key, max_queries=3, min_events=5):
+    def __init__(self, api_key, query_root, max_queries=3, min_events=5):
         self.api_key = api_key
         self.max_queries = max_queries
         self.min_events = min_events
+        self.query_root = query_root
 
     @abstractmethod
     def _query_event_page(self, contributor, page):

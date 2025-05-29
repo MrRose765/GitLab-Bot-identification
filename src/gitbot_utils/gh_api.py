@@ -14,19 +14,22 @@ from .api_manager import APIManager
 class GitHubManager(APIManager):
 
     def __init__(self, api_key=None, max_queries=3, min_events=5, ghmap=True):
-        super().__init__(api_key, max_queries, min_events)
+        super().__init__(api_key,
+                         query_root= 'https://api.github.com',
+                         max_queries= max_queries,
+                         min_events= min_events)
         self.ghmap = ghmap
-        self.query_root = 'https://api.github.com'
 
     def _query_event_page(self, contributor, page):
         """
         Query a page of events of a contributor from the GitHub API.
         """
-        query = f'{self.query_root}/users/{contributor}/events?per_page=100&page=<page>'
-        headers = {}
-        if self.api_key:
-            headers['Authorization'] = f'token {self.api_key}'
-        response = requests.get(query, headers=headers)
+        query = f'{self.query_root}/users/{contributor}/events'
+        response = requests.get(
+            query,
+            headers={'Authorization': f'token {self.api_key}'} if self.api_key else {},
+            params={'per_page': 100, 'page': page}
+        )
 
         if response.ok:
             return response.json(), response.headers
@@ -51,10 +54,10 @@ class GitHubManager(APIManager):
         Query the type of contributor from the GitHub API.
         """
         query = f'{self.query_root}/users/{contributor}'
-        headers = {}
-        if self.api_key:
-            headers['Authorization'] = f'token {self.api_key}'
-        response = requests.get(query, headers=headers)
+        response = requests.get(
+            query,
+            headers={'Authorization': f'token {self.api_key}'} if self.api_key else {}
+        )
 
         if response.ok:
             query_remaining = int(response.headers['X-RateLimit-Remaining'])
