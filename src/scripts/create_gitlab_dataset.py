@@ -16,20 +16,25 @@ def bot_heuristic(username, name):
     Heuristic to determine if a contributor is a bot based on their username.
     """
     return (
-        any(bot_keyword in username for bot_keyword in ['bot', 'ci', 'io'])
+        any(bot_keyword in username for bot_keyword in ['bot', 'ci', 'io', 'token'])
     or
-        any(bot_keyword in name for bot_keyword in ['bot', 'ci', 'io'])
+        any(bot_keyword in name for bot_keyword in ['bot', 'ci', 'io', 'token'])
     )
 
 
 class ContributorManager(GitLabManager):
+    """
+    Manager specialized in querying contributors and members of GitLab repositories.
+    """
 
     def _query_member_page(self, project_id, page):
-        query = f'{self.query_root}/projects/{project_id}/members/all?per_page=100&page={page}'
-        headers = {}
-        if self.api_key:
-            headers['Private-Token'] = self.api_key
-        response = requests.get(query, headers=headers)
+        query = f'{self.query_root}/projects/{project_id}/members/all'
+        response = requests.get(
+            query,
+            headers={'Private-Token': self.api_key} if self.api_key else {},
+            params={'per_page': 100, 'page': page}
+        )
+
         if response.ok:
             return response.json()
         else:
@@ -37,11 +42,13 @@ class ContributorManager(GitLabManager):
             return None
 
     def _query_repo_event_page(self, project_id, page):
-        query = f'{self.query_root}/projects/{project_id}/events?per_page=100&page={page}'
-        headers = {}
-        if self.api_key:
-            headers['Private-Token'] = self.api_key
-        response = requests.get(query, headers=headers)
+        query = f'{self.query_root}/projects/{project_id}/events'
+        response = requests.get(
+            query,
+            headers={'Private-Token': self.api_key} if self.api_key else {},
+            params={'per_page': 100, 'page': page}
+        )
+
         if response.ok:
             return response.json(), response.headers
         else:
@@ -49,6 +56,9 @@ class ContributorManager(GitLabManager):
             return [], response.headers
 
     def query_repo_members(self, project_id):
+        """
+        Query all members of a project. (/projects/{project_id}/members/all)
+        """
         all_members = []
         page = 1
         while True:
@@ -60,6 +70,15 @@ class ContributorManager(GitLabManager):
         return all_members
 
     def query_repo_contributors(self, project_id, min_contributors=10):
+        """
+        Query human contributors of a project based on their events.
+
+        This method will:
+        1. Query the events of the project.
+        2. Extract the authors of the events and apply a heuristic to filter out bots.
+        3. Stop querying new pages when we have enough contributors or when there are no more events.
+        4. Return a list of contributors with their ID, username, and name.
+        """
         contributors = []
         known_usernames = set()
 
@@ -73,7 +92,7 @@ class ContributorManager(GitLabManager):
                     continue
                 username = event['author']['username']
                 is_bot = bot_heuristic(username, event['author'].get('name', ''))
-                if username in known_usernames or is_bot:
+                if username in known_usernames or not is_bot:
                     continue
 
                 contributors.append({
@@ -109,10 +128,8 @@ def analyse_contributor(contributor, gitlab_manager: GitLabManager, bimbis, bimb
 
     if label_bimbas != label_bimbis:
         label = 'Unknown'
-    elif label_bimbas == 'Bot':
-        label = 'Bot'
     else:
-        label = 'Human'
+        label = label_bimbis
 
     return {
         "username": contributor['username'],
@@ -126,6 +143,15 @@ def analyse_contributor(contributor, gitlab_manager: GitLabManager, bimbis, bimb
     }
 
 def extract_bot_users(repository, contributor_manager, bimbis, bimbas):
+    """
+    Extract bot users from the active repositories.
+    To do so, we will fetch the members of the repository and apply a heuristic to determine if they are bots.
+
+    We will :
+    1. For each repository, get the members.
+    2. Apply a heuristic to determine if the member is a bot (if username/name contains 'bot', 'io' or 'ci').
+    3. Predict the type of contributors using BIMBIS and BIMBAS models. (Avoid false positives in the dataset)
+    """
     members = contributor_manager.query_repo_members(repository['id'])
 
     # Keep members that are bots
@@ -175,8 +201,8 @@ if __name__ == '__main__':
     bimbis = mod.load_model("../resources/models/bimbis.joblib")
     bimbas = mod.load_model("../resources/models/bimbas.joblib")
 
-    repositories = pd.read_csv("../resources/data/gitlab-dataset/gitlab_10k_repositories.csv")
-    repositories = repositories.sort_values(by='#stars', ascending=False).reset_index(drop=True)
+    repositories = pd.read_csv("../resources/data/gitlab/gitlab_10k_repositories.csv")
+    repositories = repositories.sort_values(by='#stars', ascending=True).reset_index(drop=True)
 
     start = 1-1
 
@@ -202,4 +228,4 @@ if __name__ == '__main__':
             df_result = pd.concat([df_result, repo_df], ignore_index=True)
 
         # Save file
-        df_result.to_csv("../resources/data/gitlab-dataset/gitlab_human_dataset.csv", index=False)
+        df_result.to_csv("../resources/data/gitlab/oui.csv", index=False)

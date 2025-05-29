@@ -1,256 +1,271 @@
-id,username,name,nb_activity,manual_label,label
-929255,cogbot,GitLab Cog Bot,250,Unknown,Bot
+id,username,name,nb_activity,label,manual_label
+929255,cogbot,GitLab Cog Bot,250,Bot,Unknown
 21134072,project_278964_bot_a1e04ca047b466ba2f6534548fe23088,ops.gitlab.net/gitlab-com/database-team/gitlab-com-database-testing:GITLAB_API_TOKEN,300,Bot,Bot
-21681581,project_278964_bot_d928bc4aee0c73fc4ffa994d76825393,Auto-quarantining bot,300,Unknown,Bot
-22819274,project_278964_bot_77e28085fcec07f14dfd31c689824b5b,release-tools approver bot,300,Unknown,Bot
+21681581,project_278964_bot_d928bc4aee0c73fc4ffa994d76825393,Auto-quarantining bot,300,Bot,Unknown
+22819274,project_278964_bot_77e28085fcec07f14dfd31c689824b5b,release-tools approver bot,300,Bot,Unknown
 23047801,group_12627982_bot_fa274bcce794e189d7608b786351d57e,Foundations bot,6,Bot,Bot
-24920678,project_278964_bot_99d8e0716045edece1ece406bdf03728,RUBY_SYNC,300,Unknown,Bot
-25358879,project_278964_bot_721481034e48437e1f8ec9b259db3134,TEST_SLOW_NOTE_PROJECT_TOKEN,157,Unknown,Bot
-25358891,project_278964_bot_87c17d71a842955abfceaf361a49f249,TEST_FAILURES_PROJECT_TOKEN,300,Unknown,Bot
-25358904,project_278964_bot_079be3103ed333565a8fbea3be7252f4,PROJECT_TOKEN_FOR_CI_SCRIPTS_API_USAGE,300,Unknown,Bot
-25358947,project_278964_bot_b66b169fda2a3223a645094be35d5515,DANGER_GITLAB_API_TOKEN,300,Unknown,Bot
-23012018,project_3472737_bot_1fbc613f42d33124c34fb98cc87650ea,Inkscape translations bot,26,Unknown,Bot
-1553458,gitlab-crowdin-bot,GitLab Crowdin Bot,300,Unknown,Bot
-21707468,project_250833_bot_836d914bb2e54d8af31290f600147a0c,Danger bot,170,Unknown,Bot
-2554746,veloren-bot,Veloren,241,Unknown,Bot
-8866215,veloren_collaboration_bot,collaboration bot,149,Unknown,Bot
-23131361,project_10858056_bot_f969f72a7e15086827dc9d30b978faa2,CORE_AUTOBOT_GITLAB_PERSONAL_ACCESS_TOKEN,56,Unknown,Bot
-20833598,group_1996273_bot_cc390f2dcbab04de9a8637944d3a12ae,renovatebot,32,Unknown,Bot
-1289430,fdroid-bot,F-Droid Bot,105,Unknown,Bot
+24920678,project_278964_bot_99d8e0716045edece1ece406bdf03728,RUBY_SYNC,300,Bot,Unknown
+25358879,project_278964_bot_721481034e48437e1f8ec9b259db3134,TEST_SLOW_NOTE_PROJECT_TOKEN,157,Bot,Unknown
+25358891,project_278964_bot_87c17d71a842955abfceaf361a49f249,TEST_FAILURES_PROJECT_TOKEN,300,Bot,Unknown
+25358904,project_278964_bot_079be3103ed333565a8fbea3be7252f4,PROJECT_TOKEN_FOR_CI_SCRIPTS_API_USAGE,300,Bot,Unknown
+25358947,project_278964_bot_b66b169fda2a3223a645094be35d5515,DANGER_GITLAB_API_TOKEN,300,Bot,Unknown
+23012018,project_3472737_bot_1fbc613f42d33124c34fb98cc87650ea,Inkscape translations bot,26,Bot,Unknown
+1553458,gitlab-crowdin-bot,GitLab Crowdin Bot,300,Bot,Unknown
+21707468,project_250833_bot_836d914bb2e54d8af31290f600147a0c,Danger bot,170,Bot,Unknown
+2554746,veloren-bot,Veloren,241,Bot,Unknown
+8866215,veloren_collaboration_bot,collaboration bot,149,Bot,Unknown
+23131361,project_10858056_bot_f969f72a7e15086827dc9d30b978faa2,CORE_AUTOBOT_GITLAB_PERSONAL_ACCESS_TOKEN,56,Bot,Unknown
+20833598,group_1996273_bot_cc390f2dcbab04de9a8637944d3a12ae,renovatebot,32,Bot,Unknown
+1289430,fdroid-bot,F-Droid Bot,105,Bot,Unknown
 25073969,project_15462818_bot_3664b606fd994f2f0d7d6e1051c0505e,ci_git_push_access,12,Bot,Bot
 5015372,kicad-bot,KiCad Bot,117,Bot,Bot
-22381638,project_7153509_bot_7ca269a66ac9cc6ca2f90b68d42d3661,triage,59,Unknown,Bot
-24585238,project_74823_bot_eecfeb210f383dd51e07077f09ad39a1,DANGER_GITLAB_API_TOKEN,243,Unknown,Bot
-23276496,project_34675721_bot_63c565833c0f8145e9e29ea80c3a260a,project_danger_token_dev,92,Unknown,Bot
-8770486,nomadic-margebot,Marge Bot,207,Unknown,Bot
-24798974,project_1148549_bot_d81065e21dec9d41dc5634b28be45f2d,renovate-bot,233,Unknown,Bot
-24798975,project_1148549_bot_56abfea0258612034835203d73f47c34,danger,178,Unknown,Bot
-24798973,project_1148549_bot_21bb566b6bbb2eb9618a42a7d1859a47,semantic-release,245,Unknown,Bot
-24799041,project_1148549_bot_54f67ee4e7c31c72c1458fe69ffda620,woodhouse,158,Unknown,Bot
-24651378,project_5261717_bot_496b695b4cbdf5e91b5be590c1d72f72,danger bot access token,191,Unknown,Bot
+22381638,project_7153509_bot_7ca269a66ac9cc6ca2f90b68d42d3661,triage,59,Bot,Unknown
+24585238,project_74823_bot_eecfeb210f383dd51e07077f09ad39a1,DANGER_GITLAB_API_TOKEN,243,Bot,Unknown
+23276496,project_34675721_bot_63c565833c0f8145e9e29ea80c3a260a,project_danger_token_dev,92,Bot,Unknown
+8770486,nomadic-margebot,Marge Bot,207,Bot,Unknown
+24798974,project_1148549_bot_d81065e21dec9d41dc5634b28be45f2d,renovate-bot,233,Bot,Unknown
+24798975,project_1148549_bot_56abfea0258612034835203d73f47c34,danger,178,Bot,Unknown
+24798973,project_1148549_bot_21bb566b6bbb2eb9618a42a7d1859a47,semantic-release,245,Bot,Unknown
+24799041,project_1148549_bot_54f67ee4e7c31c72c1458fe69ffda620,woodhouse,158,Bot,Unknown
+24651378,project_5261717_bot_496b695b4cbdf5e91b5be590c1d72f72,danger bot access token,191,Bot,Unknown
 25012344,project_5261717_bot_c61048c9d61862d90bd10ad33a54aabc,semantic-release-token,135,Bot,Bot
 19644286,project_3828396_bot_0f903a4c2ee94e92e669bf76d6f1c4a6,CNG: ISSUE_TRACKER_API_TOKEN,6,Bot,Bot
-24571762,project_2009901_bot_74b13bc7f440243490fab52f7ffc4d35,Danger Bot,149,Unknown,Bot
-23403402,project_7071551_bot_6c18b737953d30166b19f5c7124223bc,GitLab UI Danger Bot,223,Unknown,Bot
-23403417,project_7071551_bot_f5fdad4eae13d23093bbe3413d011d9e,gitlab-ui releases,274,Unknown,Bot
-2700514,fsdk-marge-bot,Freedesktop SDK Merge Bot,205,Unknown,Bot
-10620598,glrenovatebot,Soos,292,Unknown,Bot
-24798896,group_1112072_bot_165944cd6e64b38b4c0520d5edcd2053,oncall-robot-assistant,8,Unknown,Bot
-24798902,group_1112072_bot_d014cc61531b07b593822b83bea118a3,woodhouse-slack,80,Unknown,Bot
-24798901,group_1112072_bot_fe57696218e80a2d38f21d17114b3f65,woodhouse-handover,184,Unknown,Bot
-25138409,group_1112072_bot_0d41afb74ecfaa55ec5343f59ceb3a78,change-scheduler,12,Unknown,Bot
+24571762,project_2009901_bot_74b13bc7f440243490fab52f7ffc4d35,Danger Bot,149,Bot,Unknown
+23403402,project_7071551_bot_6c18b737953d30166b19f5c7124223bc,GitLab UI Danger Bot,223,Bot,Unknown
+23403417,project_7071551_bot_f5fdad4eae13d23093bbe3413d011d9e,gitlab-ui releases,274,Bot,Unknown
+2700514,fsdk-marge-bot,Freedesktop SDK Merge Bot,205,Bot,Unknown
+10620598,glrenovatebot,Soos,292,Bot,Unknown
+24798896,group_1112072_bot_165944cd6e64b38b4c0520d5edcd2053,oncall-robot-assistant,8,Bot,Unknown
+24798902,group_1112072_bot_d014cc61531b07b593822b83bea118a3,woodhouse-slack,80,Bot,Unknown
+24798901,group_1112072_bot_fe57696218e80a2d38f21d17114b3f65,woodhouse-handover,184,Bot,Unknown
+25138409,group_1112072_bot_0d41afb74ecfaa55ec5343f59ceb3a78,change-scheduler,12,Bot,Unknown
 24973515,project_14292404_bot_57d28a1bb55cd4dd0db2d62e98d1949b,DANGER_GITLAB_API_TOKEN,6,Bot,Bot
-23458231,project_734943_bot_a69f6c6d12e0117b341434920c8eba0d,DANGER_GITLAB_API_TOKEN_2024,33,Unknown,Bot
-25773172,group_10870176_bot_74544bb7e730d4b0d05330e11754cbff,test-mr-script,27,Unknown,Bot
-21505705,group_56389922_bot_5b7b722f970e61e78b5abbfbae051183,Docsy GitLab Release,300,Unknown,Bot
-21939084,project_42817607_bot_a8244e73f1daf844c1fa6e91f7f3eb04,DANGER_GITLAB_API_TOKEN,112,Unknown,Bot
-22245308,group_56389922_bot_d5acfd3f236b75a39c7a05d8424e5448,Triage bot,295,Unknown,Bot
-21700398,project_40916776_bot_1b87eb13b8a1e9905daaeef23145fa68,Danger bot,93,Unknown,Bot
-24597129,project_430285_bot_70904fb10342485479573b9773c04385,danger-review,21,Unknown,Bot
-24798979,project_430285_bot_fd77d0789f6bca571bf21d19023c6d86,danger,157,Unknown,Bot
-24798982,project_430285_bot_50b118267442859ba0f8b7b2fe384a28,renovate-bot,186,Unknown,Bot
+23458231,project_734943_bot_a69f6c6d12e0117b341434920c8eba0d,DANGER_GITLAB_API_TOKEN_2024,33,Bot,Unknown
+25773172,group_10870176_bot_74544bb7e730d4b0d05330e11754cbff,test-mr-script,27,Bot,Unknown
+21505705,group_56389922_bot_5b7b722f970e61e78b5abbfbae051183,Docsy GitLab Release,300,Bot,Unknown
+21939084,project_42817607_bot_a8244e73f1daf844c1fa6e91f7f3eb04,DANGER_GITLAB_API_TOKEN,112,Bot,Unknown
+22245308,group_56389922_bot_d5acfd3f236b75a39c7a05d8424e5448,Triage bot,295,Bot,Unknown
+21700398,project_40916776_bot_1b87eb13b8a1e9905daaeef23145fa68,Danger bot,93,Bot,Unknown
+24597129,project_430285_bot_70904fb10342485479573b9773c04385,danger-review,21,Bot,Unknown
+24798979,project_430285_bot_fd77d0789f6bca571bf21d19023c6d86,danger,157,Bot,Unknown
+24798982,project_430285_bot_50b118267442859ba0f8b7b2fe384a28,renovate-bot,186,Bot,Unknown
 21800708,project_4149988_bot_f13e10c1e5f1decbe8427389ecf1d9e9,gitlab-svgs release,6,Bot,Bot
-21800719,project_4149988_bot_fcce6e2292ad895981a769160373b9b4,gitlab-svgs danger,12,Unknown,Bot
-21279425,project_1083469_bot_85991a4c5d3ea1ea7bfdfd99a0ee859c,triage-support-fix-bot,13,Unknown,Bot
+21800719,project_4149988_bot_fcce6e2292ad895981a769160373b9b4,gitlab-svgs danger,12,Bot,Unknown
+21279425,project_1083469_bot_85991a4c5d3ea1ea7bfdfd99a0ee859c,triage-support-fix-bot,13,Bot,Unknown
 25481643,project_39683789_bot_dee396b4d99605ba9e4d730fbdf6bf09,Ekline,6,Bot,Bot
-5935829,lilypond-bot,LilyPond Bot,108,Unknown,Bot
-24852978,project_18899486_bot_e2d93076458c73e2ae2466ffe3add2a1,DANGER_GITLAB_API_TOKEN,29,Unknown,Bot
-5668172,cki-admin-bot,CKI Admin Bot,180,Unknown,Bot
-3953733,cki-bot,CKI Bot,300,Unknown,Bot
-8143989,cki-kwf-bot,CKI KWF Bot,75,Unknown,Bot
-21281452,cki-backport-bot,CKI Backport Bot,300,Unknown,Bot
-11032269,imagebuilder-bot,Image Builder Bot,296,Unknown,Bot
-3146895,tikibot,TikiBot,297,Unknown,Bot
-5589227,cki-ci-bot,CKI CI Bot,245,Unknown,Bot
-5974646,cki-ark-bot,CKI ARK Bot,298,Unknown,Bot
-22939024,service_account_group_59800588_5b856dc377465a1db9d1212fddf584f3,Sylva triage bot,255,Unknown,Bot
-5826455,html-validate-bot,HTML-validate,300,Unknown,Bot
-25078900,project_65271576_bot_b1536fd80e97ecd45130660fde570b1f,danger bot,23,Unknown,Bot
-21814154,project_22820629_bot_cbc9e007e1c4005d5d848f10a895abd1,Choom Bot,51,Unknown,Bot
-5678729,sahbot,SoftAtHome bot,298,Unknown,Bot
-21449246,group_6326218_bot_9d9ca8037e956312eed263446ba87e1a,prplbot,182,Unknown,Bot
-8838050,tbc-bot,to be continuous bot,254,Unknown,Bot
-24689853,project_13831684_bot_f32bbd5a1ce2999593a10380eaf8557a,DANGER_GITLAB_API_TOKEN,95,Unknown,Bot
+5935829,lilypond-bot,LilyPond Bot,108,Bot,Unknown
+24852978,project_18899486_bot_e2d93076458c73e2ae2466ffe3add2a1,DANGER_GITLAB_API_TOKEN,29,Bot,Unknown
+5668172,cki-admin-bot,CKI Admin Bot,180,Bot,Unknown
+3953733,cki-bot,CKI Bot,300,Bot,Unknown
+8143989,cki-kwf-bot,CKI KWF Bot,75,Bot,Unknown
+21281452,cki-backport-bot,CKI Backport Bot,300,Bot,Unknown
+11032269,imagebuilder-bot,Image Builder Bot,296,Bot,Unknown
+3146895,tikibot,TikiBot,297,Bot,Unknown
+5589227,cki-ci-bot,CKI CI Bot,245,Bot,Unknown
+5974646,cki-ark-bot,CKI ARK Bot,298,Bot,Unknown
+22939024,service_account_group_59800588_5b856dc377465a1db9d1212fddf584f3,Sylva triage bot,255,Bot,Unknown
+5826455,html-validate-bot,HTML-validate,300,Bot,Unknown
+25078900,project_65271576_bot_b1536fd80e97ecd45130660fde570b1f,danger bot,23,Bot,Unknown
+21814154,project_22820629_bot_cbc9e007e1c4005d5d848f10a895abd1,Choom Bot,51,Bot,Unknown
+5678729,sahbot,SoftAtHome bot,298,Bot,Unknown
+21449246,group_6326218_bot_9d9ca8037e956312eed263446ba87e1a,prplbot,182,Bot,Unknown
+8838050,tbc-bot,to be continuous bot,254,Bot,Unknown
+24689853,project_13831684_bot_f32bbd5a1ce2999593a10380eaf8557a,DANGER_GITLAB_API_TOKEN,95,Bot,Unknown
 21365787,group_7003188_bot_4f0a14a1ffaa54b5c9253655dcc3aa8d,CLABot 2,98,Bot,Bot
-21453018,group_7003188_bot_1c43791bfaf6fa383edb61b41b542d37,gitlab-ci-semantic-release,89,Unknown,Bot
-24799181,project_12547113_bot_b8224086cb676225f2e4ef4aa7bab4be,danger,124,Unknown,Bot
-24799214,project_12547113_bot_449d35270874b50867c0421ccdb3dbfd,notify-mr,63,Unknown,Bot
-24799215,project_12547113_bot_dd3f8407827b3a2117a9443742505cff,chart-bumper,60,Unknown,Bot
+21453018,group_7003188_bot_1c43791bfaf6fa383edb61b41b542d37,gitlab-ci-semantic-release,89,Bot,Unknown
+24799181,project_12547113_bot_b8224086cb676225f2e4ef4aa7bab4be,danger,124,Bot,Unknown
+24799214,project_12547113_bot_449d35270874b50867c0421ccdb3dbfd,notify-mr,63,Bot,Unknown
+24799215,project_12547113_bot_dd3f8407827b3a2117a9443742505cff,chart-bumper,60,Bot,Unknown
 23541107,project_37860711_bot_d42bd95d96d7c144d5c27aa7b9707c28,CMS submodule,9,Bot,Bot
 23541152,project_37860711_bot_f160792279140129f8d274a55325322c,ci-git-token,8,Bot,Bot
-24850576,project_32950782_bot_676e94dbaba63ca2192d97337d2ec2ad,Danger API token,131,Unknown,Bot
-21588380,project_1641463_bot_a011c902ee78fa1607870cd59eb1d454,CI-based creation of automatic issues,51,Unknown,Bot
-3701116,rybot,Robert Helgesson (Bot),165,Unknown,Bot
-21711502,group_2452873_bot_c753d848f7cfc2edc234301f571b4d3c,DANGER_GITLAB_API_TOKEN,172,Unknown,Bot
-25408003,project_39903947_bot_7ec79239d246a8e5d3c811a7cddba44e,DANGER_GITLAB_API_TOKEN,75,Unknown,Bot
-19611369,project_42451983_bot_3634f85b729cc615f28b2c5c006d7c60,TIM tester bot,61,Unknown,Bot
-21744311,service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc,Sylva Renovate bot,205,Unknown,Bot
+24850576,project_32950782_bot_676e94dbaba63ca2192d97337d2ec2ad,Danger API token,131,Bot,Unknown
+21588380,project_1641463_bot_a011c902ee78fa1607870cd59eb1d454,CI-based creation of automatic issues,51,Bot,Unknown
+3701116,rybot,Robert Helgesson (Bot),165,Bot,Unknown
+21711502,group_2452873_bot_c753d848f7cfc2edc234301f571b4d3c,DANGER_GITLAB_API_TOKEN,172,Bot,Unknown
+25408003,project_39903947_bot_7ec79239d246a8e5d3c811a7cddba44e,DANGER_GITLAB_API_TOKEN,75,Bot,Unknown
+19611369,project_42451983_bot_3634f85b729cc615f28b2c5c006d7c60,TIM tester bot,61,Bot,Unknown
+21744311,service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc,Sylva Renovate bot,205,Bot,Unknown
 24715118,group_65781592_bot_10f9b39957a4fffd40f0e0274ab938c4,marge-org renovate-bot,93,Bot,Bot
-24798417,project_44832549_bot_03f92d37326c887e2c4cbab93b88fd96,marge release-bot,106,Unknown,Bot
-22742455,vls-bot,VLS Bot,19,Unknown,Bot
-21470778,project_46519181_bot_4fb290001473e8da9660b5693528052a,danger bot token,287,Unknown,Bot
-23317931,group_11547342_bot_2109d40483336b6cd2bb1c570aedb817,CI,252,Unknown,Bot
-8421074,lkft-bot,lkft-bot,190,Unknown,Bot
+24798417,project_44832549_bot_03f92d37326c887e2c4cbab93b88fd96,marge release-bot,106,Bot,Unknown
+22742455,vls-bot,VLS Bot,19,Bot,Unknown
+21470778,project_46519181_bot_4fb290001473e8da9660b5693528052a,danger bot token,287,Bot,Unknown
+23317931,group_11547342_bot_2109d40483336b6cd2bb1c570aedb817,CI,252,Bot,Unknown
+8421074,lkft-bot,lkft-bot,190,Bot,Unknown
 25359497,manuel.bottini,Manuel B,31,Human,Human
-21380889,project_19168116_bot_16862f3c25076feb1242be2daf5fd0c5,codeowners-mr,32,Unknown,Bot
-22820097,project_19168116_bot_01c4d50f7f8a8c70cda8a2058024838c,gitlab-job-deploy-production/restored,220,Unknown,Bot
-24799188,project_17599543_bot_e4d0a07ae8cb8ab4d58d027b57caa5e1,danger,298,Unknown,Bot
-24799216,project_17599543_bot_301fc5196d400b4b3e94832c66c6619e,notify-mr,135,Unknown,Bot
-21300780,group_2750817_bot_7524e552e4fd2f2808784981efe6a190,pipeline-common-ref-update,153,Unknown,Bot
+21380889,project_19168116_bot_16862f3c25076feb1242be2daf5fd0c5,codeowners-mr,32,Bot,Unknown
+22820097,project_19168116_bot_01c4d50f7f8a8c70cda8a2058024838c,gitlab-job-deploy-production/restored,220,Bot,Unknown
+24799188,project_17599543_bot_e4d0a07ae8cb8ab4d58d027b57caa5e1,danger,298,Bot,Unknown
+24799216,project_17599543_bot_301fc5196d400b4b3e94832c66c6619e,notify-mr,135,Bot,Unknown
+21300780,group_2750817_bot_7524e552e4fd2f2808784981efe6a190,pipeline-common-ref-update,153,Bot,Unknown
 21889317,project_27428957_bot_9295a4e20b10f069c424738f9a676c7e,upvers_token,5,Bot,Bot
-6514973,tuxedo_bot,tuxedo_bot,134,Unknown,Bot
+6514973,tuxedo_bot,tuxedo_bot,134,Bot,Unknown
 1662954,sosy-bot,🤖 SoSy-Bot 🤖,298,Bot,Bot
 22473378,project_44042130_bot_6a748251ed338313e01f6ff147fd9943,codeberg_mirror_fresh,7,Bot,Bot
-21334568,project_32123684_bot_be425336386caa73c30c0e9c056321b8,Token pour releases de KM,31,Unknown,Bot
-8199175,ecg_cicd_readonly,ECG Bot (readonly),51,Unknown,Bot
-8199212,ecg_cicd,ECG Bot,266,Unknown,Bot
-24614294,group_67740146_bot_7c548ecafb02767811ea1226de16525a,Runway Renovate Robot,293,Unknown,Bot
-4313252,goldenbot,GoldenBot,300,Unknown,Bot
-21840396,project_18741849_bot_0043dba7678c07339a15902cd5914876,cnaworkflow,35,Unknown,Bot
-21505882,project_13284652_bot_2543ca0eba500916f6eda618379f4d80,git mailing list api,190,Unknown,Bot
-21555495,project_56933558_bot_36e281ee2e14cd7a0f83ceda95b5ba16,DANGER_GITLAB_API_TOKEN,55,Unknown,Bot
-20521049,group_53986711_bot_92822790c8858b5599712ccf944c70dd,UBports Backport Bot,41,Unknown,Bot
+21334568,project_32123684_bot_be425336386caa73c30c0e9c056321b8,Token pour releases de KM,31,Bot,Unknown
+8199175,ecg_cicd_readonly,ECG Bot (readonly),51,Bot,Unknown
+8199212,ecg_cicd,ECG Bot,266,Bot,Unknown
+24614294,group_67740146_bot_7c548ecafb02767811ea1226de16525a,Runway Renovate Robot,293,Bot,Unknown
+4313252,goldenbot,GoldenBot,300,Bot,Unknown
+21840396,project_18741849_bot_0043dba7678c07339a15902cd5914876,cnaworkflow,35,Bot,Unknown
+21505882,project_13284652_bot_2543ca0eba500916f6eda618379f4d80,git mailing list api,190,Bot,Unknown
+21555495,project_56933558_bot_36e281ee2e14cd7a0f83ceda95b5ba16,DANGER_GITLAB_API_TOKEN,55,Bot,Unknown
+20521049,group_53986711_bot_92822790c8858b5599712ccf944c70dd,UBports Backport Bot,41,Bot,Unknown
 24799100,project_20709159_bot_634d0086ed2e482c9e4a46885aee794a,semantic-release,6,Bot,Bot
-24799102,project_20709159_bot_50ab284ad923fb28343eefc783ba3bf4,renovate-bot,259,Unknown,Bot
-24799151,project_21078483_bot_1f7939d3e07a4ef6b7006929794a7700,notify-mr,23,Unknown,Bot
+24799102,project_20709159_bot_50ab284ad923fb28343eefc783ba3bf4,renovate-bot,259,Bot,Unknown
+24799151,project_21078483_bot_1f7939d3e07a4ef6b7006929794a7700,notify-mr,23,Bot,Unknown
 9575078,dsi11,24-bot,298,Bot,Bot
 8184503,titouan-joseph,Titouan-Joseph CICORELLA,173,Human,Human
-21268602,project_32123952_bot_30cbdeb6c55c6ebb7cd1b28fb6153def,KMServer,300,Unknown,Bot
-21331009,project_32123952_bot_4098d754e27bdeda9d8a8114f24ddb16,Bakaclub,53,Unknown,Bot
-21512755,project_32123952_bot_c403d0e43bc93e2f7011a6ffa3865002,Changelog Bot,6,Unknown,Bot
-21835587,project_32123952_bot_a21e07eef6c0ecb53725926f82c6965a,Tags i18n,13,Unknown,Bot
+21268602,project_32123952_bot_30cbdeb6c55c6ebb7cd1b28fb6153def,KMServer,300,Bot,Unknown
+21331009,project_32123952_bot_4098d754e27bdeda9d8a8114f24ddb16,Bakaclub,53,Bot,Unknown
+21512755,project_32123952_bot_c403d0e43bc93e2f7011a6ffa3865002,Changelog Bot,6,Bot,Unknown
+21835587,project_32123952_bot_a21e07eef6c0ecb53725926f82c6965a,Tags i18n,13,Bot,Unknown
 8449729,miabbott,Micah Abbott,29,Human,Human
-24891327,group_7286989_bot_878321f63c336c0a0060dfeab8305e9d,dependabot,292,Unknown,Bot
-887487,failfastci-bot,Failfast,46,Unknown,Bot
-903311,k8s-kargo-ci-robot,k8s-kargo-ci-robot,299,Unknown,Bot
+24891327,group_7286989_bot_878321f63c336c0a0060dfeab8305e9d,dependabot,292,Bot,Unknown
+887487,failfastci-bot,Failfast,46,Bot,Unknown
+903311,k8s-kargo-ci-robot,k8s-kargo-ci-robot,299,Bot,Unknown
 9274847,jamietanna_bot,Tanna[bot],161,Bot,Bot
-7503825,yaook-renovate-bot,Yaook Bot,299,Unknown,Bot
-21839649,project_29738620_bot_e5ded9ada0ddfda09e1d749a2ec15eb8,PUSH_TOKEN (rdm),230,Unknown,Bot
-21839977,group_8953118_bot_e3cba6a87199141e5bcaf75a0bd9a4df,yaook-bot,212,Unknown,Bot
-24627180,project_14477200_bot_71bd2c8d7342ab2c19f9cbd1740ce739,project_danger_token_dev,20,Unknown,Bot
-23475606,project_59518842_bot_53fa81a4d2037c5486d475f7e48451a8,MRAutomaton,61,Unknown,Bot
+7503825,yaook-renovate-bot,Yaook Bot,299,Bot,Unknown
+21839649,project_29738620_bot_e5ded9ada0ddfda09e1d749a2ec15eb8,PUSH_TOKEN (rdm),230,Bot,Unknown
+21839977,group_8953118_bot_e3cba6a87199141e5bcaf75a0bd9a4df,yaook-bot,212,Bot,Unknown
+24627180,project_14477200_bot_71bd2c8d7342ab2c19f9cbd1740ce739,project_danger_token_dev,20,Bot,Unknown
+23475606,project_59518842_bot_53fa81a4d2037c5486d475f7e48451a8,MRAutomaton,61,Bot,Unknown
 23529197,project_59518842_bot_03d2aa2168e40ca1748fe8bff82b58f2,ReleaseAutomaton,19,Bot,Bot
-21380894,project_12674929_bot_df7417e5bef6697b7799d3027a351f72,gitlab-job-deploy-production,102,Unknown,Bot
-23326025,project_62674588_bot_a9382389da038ea1871e03a3b34bb28b,Danger,87,Unknown,Bot
-22896795,project_57279821_bot_612687838eb0b5a47cc060f5586e4afa,semantic-release,16,Unknown,Bot
-22012342,project_15223829_bot_0b840da1600e38277ed79aebb54bb369,LMS42-Feedback-Reporter,94,Unknown,Bot
-24799092,project_56726842_bot_f54ca228562b5113175876912010e603,danger,47,Unknown,Bot
-24799094,project_56726842_bot_75e4edc3c1e87d0b7fdc102148595550,renovate-bot,132,Unknown,Bot
-22103805,project_21051488_bot_786dc808bdcfe3ff0dad82ffe2aa8973,CONTRATOS_API_TOKEN,10,Unknown,Bot
-9097596,particify-dependency-bot,Particify Dependency Bot,290,Unknown,Bot
-22157057,project_59366820_bot_578383fee65d6eb47c3bc444f76e3c51,DANGER_GITLAB_API_TOKEN,120,Unknown,Bot
-9280824,kubitus-bot,Kubitus Bot,199,Unknown,Bot
+21380894,project_12674929_bot_df7417e5bef6697b7799d3027a351f72,gitlab-job-deploy-production,102,Bot,Unknown
+23326025,project_62674588_bot_a9382389da038ea1871e03a3b34bb28b,Danger,87,Bot,Unknown
+22896795,project_57279821_bot_612687838eb0b5a47cc060f5586e4afa,semantic-release,16,Bot,Unknown
+22012342,project_15223829_bot_0b840da1600e38277ed79aebb54bb369,LMS42-Feedback-Reporter,94,Bot,Unknown
+24799092,project_56726842_bot_f54ca228562b5113175876912010e603,danger,47,Bot,Unknown
+24799094,project_56726842_bot_75e4edc3c1e87d0b7fdc102148595550,renovate-bot,132,Bot,Unknown
+22103805,project_21051488_bot_786dc808bdcfe3ff0dad82ffe2aa8973,CONTRATOS_API_TOKEN,10,Bot,Unknown
+9097596,particify-dependency-bot,Particify Dependency Bot,290,Bot,Unknown
+22157057,project_59366820_bot_578383fee65d6eb47c3bc444f76e3c51,DANGER_GITLAB_API_TOKEN,120,Bot,Unknown
+9280824,kubitus-bot,Kubitus Bot,199,Bot,Unknown
 22850105,group_12101187_bot_72d7a63cda3920e16501d43a25579901,GitLabracadabra Configuration,7,Bot,Bot
-24693351,group_8068961_bot_7dd75cdbb46de43e30b5b4d7cd1d9e49,renovate,227,Unknown,Bot
-7774030,pipeline-components-bot,Pipeline Components Bot,211,Unknown,Bot
-22218859,group_10887954_bot_74e3ed6e04d796e1962fa0be85fe9ae1,jenkins-cccc-gitlab-token,215,Unknown,Bot
-23553043,project_54867625_bot_ad792c58eb8ac400c2b3777ec95f2d0a,Backend,300,Unknown,Bot
-21492975,project_15291320_bot_7971e8d6eeba4fcde2f7b94650f5e8be,alfred-the-butler,99,Unknown,Bot
-21380919,project_18730232_bot_c0572ced588713c7b3b43dfa660760c0,gitlab-job-deploy-production,67,Unknown,Bot
-22820011,project_18730232_bot_f29cf73cf23eed996249b68cc586ab5a,update-ystream-composes-mr/restored,38,Unknown,Bot
-14293982,tms-bot,TMS Bot,16,Unknown,Bot
-21876070,project_45677880_bot_b33ad15d4543d030879caf621cf78d8f,CI,203,Unknown,Bot
-22760232,project_60607268_bot_3e558ae17beb087a20d5d7d7315d39b4,Onboarding triage,258,Unknown,Bot
+24693351,group_8068961_bot_7dd75cdbb46de43e30b5b4d7cd1d9e49,renovate,227,Bot,Unknown
+7774030,pipeline-components-bot,Pipeline Components Bot,211,Bot,Unknown
+22218859,group_10887954_bot_74e3ed6e04d796e1962fa0be85fe9ae1,jenkins-cccc-gitlab-token,215,Bot,Unknown
+23553043,project_54867625_bot_ad792c58eb8ac400c2b3777ec95f2d0a,Backend,300,Bot,Unknown
+21492975,project_15291320_bot_7971e8d6eeba4fcde2f7b94650f5e8be,alfred-the-butler,99,Bot,Unknown
+21380919,project_18730232_bot_c0572ced588713c7b3b43dfa660760c0,gitlab-job-deploy-production,67,Bot,Unknown
+22820011,project_18730232_bot_f29cf73cf23eed996249b68cc586ab5a,update-ystream-composes-mr/restored,38,Bot,Unknown
+14293982,tms-bot,TMS Bot,16,Bot,Unknown
+21876070,project_45677880_bot_b33ad15d4543d030879caf621cf78d8f,CI,203,Bot,Unknown
+22760232,project_60607268_bot_3e558ae17beb087a20d5d7d7315d39b4,Onboarding triage,258,Bot,Unknown
 1213871,stalb,Stéphane Talbot,41,Human,Human
-24799190,project_21151470_bot_736442629f8f7b42b4d112b24f7791d0,danger,57,Unknown,Bot
-24799217,project_21151470_bot_7bc6a7b8863a976288d507c40a61621a,woodhouse,105,Unknown,Bot
-21705413,project_58711783_bot_23e091f26a184df186cb9076209c0719,Danger,19,Unknown,Bot
+24799190,project_21151470_bot_736442629f8f7b42b4d112b24f7791d0,danger,57,Bot,Unknown
+24799217,project_21151470_bot_7bc6a7b8863a976288d507c40a61621a,woodhouse,105,Bot,Unknown
+21705413,project_58711783_bot_23e091f26a184df186cb9076209c0719,Danger,19,Bot,Unknown
 22976514,math-pi,Math Pi - FUZION,69,Human,Human
-4102383,flywheel-bot,Flywheel Bot,292,Unknown,Bot
-24850447,project_56243493_bot_ba196c66326fe4499f869411e46d7052,Whitebox CI,31,Unknown,Bot
+4102383,flywheel-bot,Flywheel Bot,292,Bot,Unknown
+24850447,project_56243493_bot_ba196c66326fe4499f869411e46d7052,Whitebox CI,31,Bot,Unknown
 20815616,group_85365992_bot_a383fa235583af3f1b1f40739684af2d,semantic-release,9,Bot,Bot
-24872394,group_85365992_bot_7f844b08dc34f5c1ee5f40aed61b145d,renovate,87,Unknown,Bot
-21964975,project_25847700_bot_620c0352702cedd7e0f87d2370c585b9,gitlab-project-token-write,83,Unknown,Bot
-21283172,group_5666320_bot_0b57c151bae9317c22e025f529ff07ba,GIT_PUSH_TOKEN,273,Unknown,Bot
+24872394,group_85365992_bot_7f844b08dc34f5c1ee5f40aed61b145d,renovate,87,Bot,Unknown
+21964975,project_25847700_bot_620c0352702cedd7e0f87d2370c585b9,gitlab-project-token-write,83,Bot,Unknown
+21283172,group_5666320_bot_0b57c151bae9317c22e025f529ff07ba,GIT_PUSH_TOKEN,273,Bot,Unknown
 11280228,biwg-bot,BIWG Bot,287,Bot,Bot
-10958879,shepard-bot,shepard bot,289,Unknown,Bot
-5306558,The123robot,The123robot,169,Unknown,Bot
-21777076,group_5034914_bot_af6d79480d44bfb3a5f557b14c71e806,GITLAB_DEVELOPER_API,51,Unknown,Bot
-22103650,project_33611450_bot_f73e10ecbe928255952661fc512af1a0,renovate,222,Unknown,Bot
-6822307,abpbot,abpbot,200,Unknown,Bot
-14491771,solveridevbot,Solveri Dev,249,Unknown,Bot
-24799157,project_40106309_bot_5c9b648cbf0a492dea949ae9a2e39081,notify-mr,52,Unknown,Bot
-23398025,group_70446164_bot_2b5eee27d1fa0f544100953ddea82aef,ds_repo_sync,119,Unknown,Bot
-23423170,group_13501534_bot_3403959abd4f8e037292b39e15af20c7,sonarcloud,194,Unknown,Bot
+10958879,shepard-bot,shepard bot,289,Bot,Unknown
+5306558,The123robot,The123robot,169,Bot,Unknown
+21777076,group_5034914_bot_af6d79480d44bfb3a5f557b14c71e806,GITLAB_DEVELOPER_API,51,Bot,Unknown
+22103650,project_33611450_bot_f73e10ecbe928255952661fc512af1a0,renovate,222,Bot,Unknown
+6822307,abpbot,abpbot,200,Bot,Unknown
+14491771,solveridevbot,Solveri Dev,249,Bot,Unknown
+24799157,project_40106309_bot_5c9b648cbf0a492dea949ae9a2e39081,notify-mr,52,Bot,Unknown
+23398025,group_70446164_bot_2b5eee27d1fa0f544100953ddea82aef,ds_repo_sync,119,Bot,Unknown
+23423170,group_13501534_bot_3403959abd4f8e037292b39e15af20c7,sonarcloud,194,Bot,Unknown
 24857999,project_45471583_bot_e6f6a6d463ad6802d8b3e281d8c3cc32,renovate-runner,66,Bot,Bot
-21261707,project_16459289_bot_dd9050bef2c08a355bd955153f8d0e0e,GITLAB_TOKEN,157,Unknown,Bot
-20557331,group_84112325_bot_ea39c2d1452d20384a902075f9acb2f2,renovate bot,285,Unknown,Bot
-7311229,magdabot,magdabot,51,Unknown,Bot
-25302816,group_87841352_bot_06158a4348bb86c5f716829c854dc0cb,fedora_bootc_tests_group_access_token,287,Unknown,Bot
-1924027,ginkgo-bot,ginkgo-bot,269,Unknown,Bot
-24799098,project_54957577_bot_7321125886f443c0782dbdfdabc5267e,renovate-bot,154,Unknown,Bot
-24799105,project_54957577_bot_985ef042f665e7d9793246aff8532635,danger,93,Unknown,Bot
-24799155,project_54957577_bot_10407bb3c377aef81f252c48775cf809,woodhouse,69,Unknown,Bot
-23465205,project_42150930_bot_a47792031cb8d13d263edbcd69a1b639,CI,113,Unknown,Bot
+21261707,project_16459289_bot_dd9050bef2c08a355bd955153f8d0e0e,GITLAB_TOKEN,157,Bot,Unknown
+20557331,group_84112325_bot_ea39c2d1452d20384a902075f9acb2f2,renovate bot,285,Bot,Unknown
+7311229,magdabot,magdabot,51,Bot,Unknown
+25302816,group_87841352_bot_06158a4348bb86c5f716829c854dc0cb,fedora_bootc_tests_group_access_token,287,Bot,Unknown
+1924027,ginkgo-bot,ginkgo-bot,269,Bot,Unknown
+24799098,project_54957577_bot_7321125886f443c0782dbdfdabc5267e,renovate-bot,154,Bot,Unknown
+24799105,project_54957577_bot_985ef042f665e7d9793246aff8532635,danger,93,Bot,Unknown
+24799155,project_54957577_bot_10407bb3c377aef81f252c48775cf809,woodhouse,69,Bot,Unknown
+23465205,project_42150930_bot_a47792031cb8d13d263edbcd69a1b639,CI,113,Bot,Unknown
 22429111,group_3327297_bot_3490d86a901d88a501a5b5a8af9f910e,Renovate Bot,86,Bot,Bot
-22636460,group_3327297_bot_18b4c1b78122aefdbc491ca59fdf6240,Multi-Gitter,207,Unknown,Bot
-18428143,renovate-bot.davinkevin.fr,Renovate Bot,229,Unknown,Bot
-7671861,CouchersBot,Couchers Bot,263,Unknown,Bot
-24799159,project_12968493_bot_9e55734f2799df42f53a5dd6429a880d,semantic-release,195,Unknown,Bot
-22700733,project_58329899_bot_b02ca162b0a7e99d7f78a32638acd39a,Upsert Git Tag Token,12,Unknown,Bot
-11071991,empaia-ci-bot,CI Bot,298,Unknown,Bot
+22636460,group_3327297_bot_18b4c1b78122aefdbc491ca59fdf6240,Multi-Gitter,207,Bot,Unknown
+18428143,renovate-bot.davinkevin.fr,Renovate Bot,229,Bot,Unknown
+7671861,CouchersBot,Couchers Bot,263,Bot,Unknown
+24799159,project_12968493_bot_9e55734f2799df42f53a5dd6429a880d,semantic-release,195,Bot,Unknown
+22700733,project_58329899_bot_b02ca162b0a7e99d7f78a32638acd39a,Upsert Git Tag Token,12,Bot,Unknown
+11071991,empaia-ci-bot,CI Bot,298,Bot,Unknown
 3625932,bc-bot,Bob The Beautiful Canoe Robot,87,Bot,Bot
-22624179,project_32555934_bot_6a7a8ade4d11fa859fabfccc4fade736,Localise_2024,10,Unknown,Bot
-24746542,project_46649240_bot_a3334877459e5a1afa7152a61fb81472,Danger,23,Unknown,Bot
-24678159,project_59706718_bot_9258bfac8d006264ba3e678d0db215c5,pipelines-as-code-secret,273,Unknown,Bot
-23049950,group_4393555_bot_2010b002c789eb042360c58ac4575935,Pipeline Token (GL_TOKEN),132,Unknown,Bot
-22103793,project_37401966_bot_10cd908228cc6e7685ab0b0fdfdbf1a3,CONTRATOSV2_API_TOKEN,39,Unknown,Bot
-21302058,project_30910044_bot_8b59d5cd74747d38fa68050edbabcadb,GITLAB_API_ACCESS_TOKEN,91,Unknown,Bot
+22624179,project_32555934_bot_6a7a8ade4d11fa859fabfccc4fade736,Localise_2024,10,Bot,Unknown
+24746542,project_46649240_bot_a3334877459e5a1afa7152a61fb81472,Danger,23,Bot,Unknown
+24678159,project_59706718_bot_9258bfac8d006264ba3e678d0db215c5,pipelines-as-code-secret,273,Bot,Unknown
+23049950,group_4393555_bot_2010b002c789eb042360c58ac4575935,Pipeline Token (GL_TOKEN),132,Bot,Unknown
+22103793,project_37401966_bot_10cd908228cc6e7685ab0b0fdfdbf1a3,CONTRATOSV2_API_TOKEN,39,Bot,Unknown
+21302058,project_30910044_bot_8b59d5cd74747d38fa68050edbabcadb,GITLAB_API_ACCESS_TOKEN,91,Bot,Unknown
 14933044,scrwbot,SCRW Bot,26,Bot,Bot
-21991320,group_3434605_bot_6f5d8e75269d9a034a3a754c34bc0bcd,RENOVATE_TOKEN,54,Unknown,Bot
+21991320,group_3434605_bot_6f5d8e75269d9a034a3a754c34bc0bcd,RENOVATE_TOKEN,54,Bot,Unknown
 9343781,twfgcicdbot,TWFGcicd bot,9,Bot,Bot
-21772168,group_52363995_bot_b18f7e73094eb76a5b251cd47aa83323,sonarcloud,131,Unknown,Bot
-21774269,group_52363995_bot_ae29d2aadf61a96abf747abdd6544e8a,bk-ci-job,300,Unknown,Bot
-22730132,project_61399101_bot_d3469d493b6f845ff41c4290aa91ce76,deploy_token,300,Unknown,Bot
+21772168,group_52363995_bot_b18f7e73094eb76a5b251cd47aa83323,sonarcloud,131,Bot,Unknown
+21774269,group_52363995_bot_ae29d2aadf61a96abf747abdd6544e8a,bk-ci-job,300,Bot,Unknown
+22730132,project_61399101_bot_d3469d493b6f845ff41c4290aa91ce76,deploy_token,300,Bot,Unknown
 24799135,project_36536308_bot_3ebca4b7dd3d1eea7e824279a27d6103,renovate-bot,5,Bot,Bot
-22470403,group_6969493_bot_ed3f9a6e7260c3d9042cac9c2b31ab57,hestia-issue-activity-bot,261,Unknown,Bot
-21255271,group_66745730_bot_48b246fddf2a44778d7f5f93482d554e,debdisttoken,300,Unknown,Bot
-21732200,group_66745730_bot_91cf5a8c35c92717a1d9f91123fe5fd4,hugo,300,Unknown,Bot
-21255528,group_66104997_bot_6fc10a3a81e84457cc4b9854eca79c4a,debdistcanary,300,Unknown,Bot
-21758724,group_54413505_bot_e95385c24bc0124534a53eddc2a2fb42,ryax-engine tag and read API from release CI,16,Unknown,Bot
+22470403,group_6969493_bot_ed3f9a6e7260c3d9042cac9c2b31ab57,hestia-issue-activity-bot,261,Bot,Unknown
+21255271,group_66745730_bot_48b246fddf2a44778d7f5f93482d554e,debdisttoken,300,Bot,Unknown
+21732200,group_66745730_bot_91cf5a8c35c92717a1d9f91123fe5fd4,hugo,300,Bot,Unknown
+21255528,group_66104997_bot_6fc10a3a81e84457cc4b9854eca79c4a,debdistcanary,300,Bot,Unknown
+21758724,group_54413505_bot_e95385c24bc0124534a53eddc2a2fb42,ryax-engine tag and read API from release CI,16,Bot,Unknown
 23166206,group_64781177_bot_8a7223988f9d30f004640e1fd96ef211,renovate-bot,53,Bot,Bot
-5196383,svrbc_bot,SVRBC Bot,28,Unknown,Bot
-8814875,centos-stream-zuul-ci-bot,CentOS Stream Zuul CI,284,Unknown,Bot
+5196383,svrbc_bot,SVRBC Bot,28,Bot,Unknown
+8814875,centos-stream-zuul-ci-bot,CentOS Stream Zuul CI,284,Bot,Unknown
 21582184,group_8794173_bot_b5827ad644a132afae20972d6b53fa4f,OSCI Bot,222,Bot,Bot
-8272820,dld-bot,DLD Bot,296,Unknown,Bot
-21268908,group_7094694_bot_13db0e7f5249ed14b4a7f0ee7a2c9618,jobtech-ci-write-repos-token-v2,300,Unknown,Bot
-5971042,NonsaBot,Nonsa Bot,269,Unknown,Bot
-22447548,project_48189215_bot_699528b4dea93c9d73520443caebaf21,app1-github-backup-2024,300,Unknown,Bot
-23056572,group_14626556_bot_3b6649d7f7df16e975e6197623c34cf9,snyk-2024-2025,250,Unknown,Bot
+8272820,dld-bot,DLD Bot,296,Bot,Unknown
+21268908,group_7094694_bot_13db0e7f5249ed14b4a7f0ee7a2c9618,jobtech-ci-write-repos-token-v2,300,Bot,Unknown
+5971042,NonsaBot,Nonsa Bot,269,Bot,Unknown
+22447548,project_48189215_bot_699528b4dea93c9d73520443caebaf21,app1-github-backup-2024,300,Bot,Unknown
+23056572,group_14626556_bot_3b6649d7f7df16e975e6197623c34cf9,snyk-2024-2025,250,Bot,Unknown
 24718793,project_55313410_bot_2f8450e02bfd8475590fe439e0e9ad5e,Custom Models Issue Refinement Bot,5,Bot,Bot
-7010448,gitlab-omnibus-mirror-bot,Gitlab Mirror Bot,178,Unknown,Bot
-22365731,fgbot,fgbot,13,Unknown,Bot
-22447468,project_48061331_bot_186c92af4ae46f6c3ef2320ff211d8bb,app1-bitcoin-bitcoin-2024,300,Unknown,Bot
-25192135,project_65554032_bot_50b896a6fdca5f8c1fdbb329298835d1,ACCESS_TOKEN,36,Unknown,Bot
-21299950,group_12499775_bot_ed0f038b491dd03a9ddd0da2cd99988d,Partisia Release Bot,300,Unknown,Bot
+7010448,gitlab-omnibus-mirror-bot,Gitlab Mirror Bot,178,Bot,Unknown
+22365731,fgbot,fgbot,13,Bot,Unknown
+22447468,project_48061331_bot_186c92af4ae46f6c3ef2320ff211d8bb,app1-bitcoin-bitcoin-2024,300,Bot,Unknown
+25192135,project_65554032_bot_50b896a6fdca5f8c1fdbb329298835d1,ACCESS_TOKEN,36,Bot,Unknown
+21299950,group_12499775_bot_ed0f038b491dd03a9ddd0da2cd99988d,Partisia Release Bot,300,Bot,Unknown
 16990714,aisop-robot,AISOP Robot,7,Human,Human
-21257159,group_2980707_bot_9e06a56f003203e158cd91acd6048ce7,Jenkins - b6f0f1dd,238,Unknown,Bot
-24798911,group_4205920_bot_7099e3550c79317cccfd60ff4086bbb1,semantic-release,15,Unknown,Bot
+21257159,group_2980707_bot_9e06a56f003203e158cd91acd6048ce7,Jenkins - b6f0f1dd,238,Bot,Unknown
+24798911,group_4205920_bot_7099e3550c79317cccfd60ff4086bbb1,semantic-release,15,Bot,Unknown
 24799268,project_58594472_bot_8f9f4d3690b3a5f01782abbd1efde7c5,renovate-bot,160,Bot,Bot
-21283636,group_15475008_bot_7d67b649789ad89b9ae204a23d491ab6,RenovateBot token for version update,282,Unknown,Bot
-2391418,Dexter9313,Florian Cabot,148,Unknown,Bot
-16883334,rainbow-robot,ASTRON Rainbow,112,Unknown,Bot
-22129829,ComhixBot,Gitlab Bot,224,Unknown,Bot
-11902200,env0-bot-bors,env0  bors,264,Unknown,Bot
+21283636,group_15475008_bot_7d67b649789ad89b9ae204a23d491ab6,RenovateBot token for version update,282,Bot,Unknown
+2391418,Dexter9313,Florian Cabot,148,Bot,Unknown
+16883334,rainbow-robot,ASTRON Rainbow,112,Bot,Unknown
+22129829,ComhixBot,Gitlab Bot,224,Bot,Unknown
+11902200,env0-bot-bors,env0  bors,264,Bot,Unknown
 21789086,group_2995119_bot_bbd491cd3c6207342ecc37c4a8409437,https://gitlab.com/amdap/renovate/renovate-runner RENOVATE_TOKEN,292,Bot,Bot
-23075973,project_61371531_bot_8df966d1555830c402a835fad33de9a2,GITLAB_TOKEN https://gitlab.com/amdap/adjunct/k8s-ci.git,40,Unknown,Bot
-24721334,project_61371531_bot_d72caf5763a275341206e3890f1d3206,SELF_TOKEN https://gitlab.com/amdap/adjunct/k8s-ci.git,38,Unknown,Bot
-21463773,group_7040839_bot_0b2dc8a322bdefb94c19cc3a06af64f9,renovate-runner,268,Unknown,Bot
-22447518,project_48189896_bot_5a893e7dbccf13135fbe6795cd22f0a4,app1-bitcoin-core-secp256k1-2024,300,Unknown,Bot
-23250036,project_62408328_bot_3a827d442d135d5667e2683cd9995920,DevelopToken,299,Unknown,Bot
-7514871,git-vcs-robot,Git VCS Robot,208,Unknown,Bot
-7869460,pantacor_one_cibot,One Cibot Pantacor,227,Unknown,Bot
-22805631,group_92907445_bot_b453f88cba31a74ec234edd8bb0de473,Semantic Release,107,Unknown,Bot
-24597997,project_64272446_bot_e20e7ae1c4c739dc5aca5e5bd3091c7d,my,77,Unknown,Bot
-25259868,project_65650978_bot_fa5b24a5aa3e2811adaf1f6b62626e7f,MaintainTokenApiV2,23,Unknown,Bot
-14287963,project_43267161_bot_ec89aa711fb2e13c5cf976c811beeb01,Pinehole Self-Pushing Token,91,Unknown,Bot
+23075973,project_61371531_bot_8df966d1555830c402a835fad33de9a2,GITLAB_TOKEN https://gitlab.com/amdap/adjunct/k8s-ci.git,40,Bot,Unknown
+24721334,project_61371531_bot_d72caf5763a275341206e3890f1d3206,SELF_TOKEN https://gitlab.com/amdap/adjunct/k8s-ci.git,38,Bot,Unknown
+21463773,group_7040839_bot_0b2dc8a322bdefb94c19cc3a06af64f9,renovate-runner,268,Bot,Unknown
+22447518,project_48189896_bot_5a893e7dbccf13135fbe6795cd22f0a4,app1-bitcoin-core-secp256k1-2024,300,Bot,Unknown
+23250036,project_62408328_bot_3a827d442d135d5667e2683cd9995920,DevelopToken,299,Bot,Unknown
+7514871,git-vcs-robot,Git VCS Robot,208,Bot,Unknown
+7869460,pantacor_one_cibot,One Cibot Pantacor,227,Bot,Unknown
+22805631,group_92907445_bot_b453f88cba31a74ec234edd8bb0de473,Semantic Release,107,Bot,Unknown
+24597997,project_64272446_bot_e20e7ae1c4c739dc5aca5e5bd3091c7d,my,77,Bot,Unknown
+14287963,project_43267161_bot_ec89aa711fb2e13c5cf976c811beeb01,Pinehole Self-Pushing Token,91,Bot,Unknown
 24665813,project_50430054_bot_3b6aca02611fb82b4ec693afaf3cfe56,GITHUB_ACTIONS_MIRROR_ACCESS,29,Bot,Bot
-7639388,fepitre-bot,fepitre-bot,261,Unknown,Bot
-23489045,group_69954530_bot_31b92a7f4503cb365910094e05fe2e69,gitlab_project_token,4,Bot,Bot
-24973826,project_53812701_bot_879ba8a6fd4999657f01a9912d13d219,Updater,42,Unknown,Bot
-24734333,project_64586918_bot_201df8156d1aed60bd88612d26438850,chunk-deploy,23,Unknown,Bot
+7639388,fepitre-bot,fepitre-bot,261,Bot,Unknown
+24973826,project_53812701_bot_879ba8a6fd4999657f01a9912d13d219,Updater,42,Bot,Unknown
+24734333,project_64586918_bot_201df8156d1aed60bd88612d26438850,chunk-deploy,23,Bot,Unknown
 25103754,project_43688369_bot_320af1a92d3ee92f7ccb2ef9bc7b17fe,ACCESS_TOKEN,37,Bot,Bot
 15340477,chessmango-renovatebot,Renovate Bot,14,Bot,Bot
-25176792,project_32768625_bot_edf52e28af0831265a81d169371bd691,CI Push Secret,36,Unknown,Bot
-21319084,project_33574247_bot_1a527ae38b28926ab8e21a4be0e63d3a,CI/CD,91,Unknown,Bot
-21514250,project_22534149_bot_e5105adda1e798dc80395be84127e6c5,gitlab-ci-token-renew-yearly-because-gitlabs-security-ppl-are-stupid,182,Unknown,Bot
+25176792,project_32768625_bot_edf52e28af0831265a81d169371bd691,CI Push Secret,36,Bot,Unknown
+21319084,project_33574247_bot_1a527ae38b28926ab8e21a4be0e63d3a,CI/CD,91,Bot,Unknown
+8648715,dependabot-bot,dependabot-bot,300,Bot,Bot
+2176095,lineageos-gerrit,LineageOS Automation,167,Bot,Unknown
+11877147,checkupdates-bot,checkupdates bot,300,Bot,Unknown
+23473398,project_7776928_bot_6b7a8a5a875e565e3222a0660414b7a7,DANGER_GITLAB_API_TOKEN ,180,Bot,Unknown
+19793720,cusku,xmpp bot,48,Bot,Unknown
+3438261,appsemble-bot,Appsemble,126,Bot,Bot
+21427415,project_23992091_bot_c60320280f3845321885b998a341e464,gitlab-triage ,6,Bot,Bot
+21366739,group_5156166_bot_01b7643973a73589a1e80a8b594614fc,Teamscale API Token ,119,Bot,Unknown
+24612773,project_38220901_bot_06fae85042fefe73762b73ab695738b3,ci_worker ,18,Bot,Unknown
+24744240,project_14231319_bot_48b7ccee69c576ccb654455990f9d1f3,PROJECT_ACCESS_TOKEN ,9,Bot,Unknown
+21676785,gl-service-dev-secure-analyzers-automation,GitLab Dev Service - Secure Stage - Analyzers Automation,45,Bot,Bot
+21876750,project_21574229_bot_7f18e31c3568aa08d255526ea7faba9e,yaook-bot-release ,70,Bot,Unknown
+19196978,Procingers-Renovate-Bot,Renovate Bot ,179,Bot,Bot
+10783421,renovate-bot-bonusly,Renovate Bot ,96,Bot,Bot
+24964061,project_50632816_bot_153eedf4e1b1aadd86204fc33b452ddf,CI,45,Bot,Bot
+23435189,project_62883193_bot_a8947d366e07243920e6843dee1bd909,diplom,15,Bot,Bot
+23516019,project_63067391_bot_5382662ffb20a9d0bdb9c959a0f60d4d,GitHub sync ,31,Bot,Bot
+25166988,project_65521911_bot_e8c9579e7bb08e14f8eeb895fde77012,lea,5,Bot,Bot

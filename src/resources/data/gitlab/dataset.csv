@@ -335,7 +335,6 @@ id,username,name,nb_activity,label,manual_label,origin
 8866215,veloren_collaboration_bot,collaboration bot,149,Bot,,bot-heuristic
 23131361,project_10858056_bot_f969f72a7e15086827dc9d30b978faa2,CORE_AUTOBOT_GITLAB_PERSONAL_ACCESS_TOKEN,56,Bot,,bot-heuristic
 20833598,group_1996273_bot_cc390f2dcbab04de9a8637944d3a12ae,renovatebot,32,Bot,,bot-heuristic
-20925392,project_7764_bot_61d7144c3920eb312a5c54eaf3b72b3c,danger-bot,7,Bot,Bot,bot-heuristic
 1289430,fdroid-bot,F-Droid Bot,105,Bot,,bot-heuristic
 25073969,project_15462818_bot_3664b606fd994f2f0d7d6e1051c0505e,ci_git_push_access,12,Bot,Bot,bot-heuristic
 5015372,kicad-bot,KiCad Bot,117,Bot,Bot,bot-heuristic
@@ -375,7 +374,6 @@ id,username,name,nb_activity,label,manual_label,origin
 21279425,project_1083469_bot_85991a4c5d3ea1ea7bfdfd99a0ee859c,triage-support-fix-bot,13,Bot,,bot-heuristic
 25481643,project_39683789_bot_dee396b4d99605ba9e4d730fbdf6bf09,Ekline,6,Bot,Bot,bot-heuristic
 5935829,lilypond-bot,LilyPond Bot,108,Bot,,bot-heuristic
-21309161,project_18899486_bot_eabca2d5d0f8b0aa6e1849ab8716c31f,OPERATOR_RELEASE_ISSUE_TOKEN,24,Bot,,bot-heuristic
 24852978,project_18899486_bot_e2d93076458c73e2ae2466ffe3add2a1,DANGER_GITLAB_API_TOKEN,29,Bot,,bot-heuristic
 5668172,cki-admin-bot,CKI Admin Bot,180,Bot,,bot-heuristic
 3953733,cki-bot,CKI Bot,300,Bot,,bot-heuristic
@@ -403,7 +401,6 @@ id,username,name,nb_activity,label,manual_label,origin
 24850576,project_32950782_bot_676e94dbaba63ca2192d97337d2ec2ad,Danger API token,131,Bot,,bot-heuristic
 21588380,project_1641463_bot_a011c902ee78fa1607870cd59eb1d454,CI-based creation of automatic issues,51,Bot,,bot-heuristic
 3701116,rybot,Robert Helgesson (Bot),165,Bot,,bot-heuristic
-21254115,group_2452873_bot_6dbc111e3a7bafcdc791c9a9db8f9921,sast-bot,95,Bot,,bot-heuristic
 21711502,group_2452873_bot_c753d848f7cfc2edc234301f571b4d3c,DANGER_GITLAB_API_TOKEN,172,Bot,,bot-heuristic
 25408003,project_39903947_bot_7ec79239d246a8e5d3c811a7cddba44e,DANGER_GITLAB_API_TOKEN,75,Bot,,bot-heuristic
 19611369,project_42451983_bot_3634f85b729cc615f28b2c5c006d7c60,TIM tester bot,61,Bot,,bot-heuristic
@@ -467,8 +464,6 @@ id,username,name,nb_activity,label,manual_label,origin
 24693351,group_8068961_bot_7dd75cdbb46de43e30b5b4d7cd1d9e49,renovate,227,Bot,,bot-heuristic
 7774030,pipeline-components-bot,Pipeline Components Bot,211,Bot,,bot-heuristic
 22218859,group_10887954_bot_74e3ed6e04d796e1962fa0be85fe9ae1,jenkins-cccc-gitlab-token,215,Bot,,bot-heuristic
-21294481,group_722983_bot_9c016b97d6b977d0f75a2b5ea96579e0,Renovate Bot,266,Bot,,bot-heuristic
-20946883,project_54867625_bot_b96883f6641f7663e020288384f7ab34,CI,176,Bot,,bot-heuristic
 23553043,project_54867625_bot_ad792c58eb8ac400c2b3777ec95f2d0a,Backend,300,Bot,,bot-heuristic
 21492975,project_15291320_bot_7971e8d6eeba4fcde2f7b94650f5e8be,alfred-the-butler,99,Bot,,bot-heuristic
 21380919,project_18730232_bot_c0572ced588713c7b3b43dfa660760c0,gitlab-job-deploy-production,67,Bot,,bot-heuristic
@@ -487,7 +482,6 @@ id,username,name,nb_activity,label,manual_label,origin
 24872394,group_85365992_bot_7f844b08dc34f5c1ee5f40aed61b145d,renovate,87,Bot,,bot-heuristic
 21964975,project_25847700_bot_620c0352702cedd7e0f87d2370c585b9,gitlab-project-token-write,83,Bot,,bot-heuristic
 21283172,group_5666320_bot_0b57c151bae9317c22e025f529ff07ba,GIT_PUSH_TOKEN,273,Bot,,bot-heuristic
-21396186,group_5666320_bot_db58d1878afb638a7bc89646559c7ba1,snyk.io,51,Bot,,bot-heuristic
 11280228,biwg-bot,BIWG Bot,287,Bot,Bot,bot-heuristic
 10958879,shepard-bot,shepard bot,289,Bot,,bot-heuristic
 5306558,The123robot,The123robot,169,Bot,,bot-heuristic
@@ -501,7 +495,6 @@ id,username,name,nb_activity,label,manual_label,origin
 24857999,project_45471583_bot_e6f6a6d463ad6802d8b3e281d8c3cc32,renovate-runner,66,Bot,Bot,bot-heuristic
 21261707,project_16459289_bot_dd9050bef2c08a355bd955153f8d0e0e,GITLAB_TOKEN,157,Bot,,bot-heuristic
 20557331,group_84112325_bot_ea39c2d1452d20384a902075f9acb2f2,renovate bot,285,Bot,,bot-heuristic
-21273688,project_18250019_bot_faab2acfc17bcc3ac988e30fcde23374,Token for https://gitlab.com/gitlab-org/frontend/playground/webpack-memory-metrics,300,Bot,,bot-heuristic
 7311229,magdabot,magdabot,51,Bot,,bot-heuristic
 25302816,group_87841352_bot_06158a4348bb86c5f716829c854dc0cb,fedora_bootc_tests_group_access_token,287,Bot,,bot-heuristic
 1924027,ginkgo-bot,ginkgo-bot,269,Bot,,bot-heuristic
@@ -522,7 +515,6 @@ id,username,name,nb_activity,label,manual_label,origin
 24678159,project_59706718_bot_9258bfac8d006264ba3e678d0db215c5,pipelines-as-code-secret,273,Bot,,bot-heuristic
 23049950,group_4393555_bot_2010b002c789eb042360c58ac4575935,Pipeline Token (GL_TOKEN),132,Bot,,bot-heuristic
 22103793,project_37401966_bot_10cd908228cc6e7685ab0b0fdfdbf1a3,CONTRATOSV2_API_TOKEN,39,Bot,,bot-heuristic
-21210630,project_39823212_bot_9d3784ce70e722ca555a9e62e54ea750,rascil-ci-pipeline-token,12,Bot,,bot-heuristic
 21302058,project_30910044_bot_8b59d5cd74747d38fa68050edbabcadb,GITLAB_API_ACCESS_TOKEN,91,Bot,,bot-heuristic
 14933044,scrwbot,SCRW Bot,26,Bot,Bot,bot-heuristic
 21991320,group_3434605_bot_6f5d8e75269d9a034a3a754c34bc0bcd,RENOVATE_TOKEN,54,Bot,,bot-heuristic
@@ -535,7 +527,6 @@ id,username,name,nb_activity,label,manual_label,origin
 21255271,group_66745730_bot_48b246fddf2a44778d7f5f93482d554e,debdisttoken,300,Bot,,bot-heuristic
 21732200,group_66745730_bot_91cf5a8c35c92717a1d9f91123fe5fd4,hugo,300,Bot,,bot-heuristic
 21255528,group_66104997_bot_6fc10a3a81e84457cc4b9854eca79c4a,debdistcanary,300,Bot,,bot-heuristic
-21058888,project_57240641_bot_4fa72d385568b99df4393e2e90579660,cnsasemain_public,14,Bot,Bot,bot-heuristic
 21758724,group_54413505_bot_e95385c24bc0124534a53eddc2a2fb42,ryax-engine tag and read API from release CI,16,Bot,,bot-heuristic
 23166206,group_64781177_bot_8a7223988f9d30f004640e1fd96ef211,renovate-bot,53,Bot,Bot,bot-heuristic
 5196383,svrbc_bot,SVRBC Bot,28,Bot,,bot-heuristic
@@ -547,7 +538,6 @@ id,username,name,nb_activity,label,manual_label,origin
 22447548,project_48189215_bot_699528b4dea93c9d73520443caebaf21,app1-github-backup-2024,300,Bot,,bot-heuristic
 23056572,group_14626556_bot_3b6649d7f7df16e975e6197623c34cf9,snyk-2024-2025,250,Bot,,bot-heuristic
 24718793,project_55313410_bot_2f8450e02bfd8475590fe439e0e9ad5e,Custom Models Issue Refinement Bot,5,Bot,Bot,bot-heuristic
-21017126,project_57227270_bot_540bde391bdfed1d2b843a9ff667ff36,auto commit token,300,Bot,,bot-heuristic
 7010448,gitlab-omnibus-mirror-bot,Gitlab Mirror Bot,178,Bot,,bot-heuristic
 22365731,fgbot,fgbot,13,Bot,,bot-heuristic
 22447468,project_48061331_bot_186c92af4ae46f6c3ef2320ff211d8bb,app1-bitcoin-bitcoin-2024,300,Bot,,bot-heuristic
@@ -572,20 +562,33 @@ id,username,name,nb_activity,label,manual_label,origin
 7869460,pantacor_one_cibot,One Cibot Pantacor,227,Bot,,bot-heuristic
 22805631,group_92907445_bot_b453f88cba31a74ec234edd8bb0de473,Semantic Release,107,Bot,,bot-heuristic
 24597997,project_64272446_bot_e20e7ae1c4c739dc5aca5e5bd3091c7d,my,77,Bot,,bot-heuristic
-25259667,project_65650978_bot_9892082823530f98be5b4e4223552eb3,git-code-foundry,60,Bot,Bot,bot-heuristic
-25259868,project_65650978_bot_fa5b24a5aa3e2811adaf1f6b62626e7f,MaintainTokenApiV2,23,Bot,,bot-heuristic
 14287963,project_43267161_bot_ec89aa711fb2e13c5cf976c811beeb01,Pinehole Self-Pushing Token,91,Bot,,bot-heuristic
 24665813,project_50430054_bot_3b6aca02611fb82b4ec693afaf3cfe56,GITHUB_ACTIONS_MIRROR_ACCESS,29,Bot,Bot,bot-heuristic
 7639388,fepitre-bot,fepitre-bot,261,Bot,,bot-heuristic
-22711357,project_59940529_bot_93ad4ae97ca34fea9d177978e2a5852e,tal_token3,232,Bot,,bot-heuristic
-23489045,group_69954530_bot_31b92a7f4503cb365910094e05fe2e69,gitlab_project_token,4,Bot,Bot,bot-heuristic
 24973826,project_53812701_bot_879ba8a6fd4999657f01a9912d13d219,Updater,42,Bot,,bot-heuristic
 24734333,project_64586918_bot_201df8156d1aed60bd88612d26438850,chunk-deploy,23,Bot,,bot-heuristic
 25103754,project_43688369_bot_320af1a92d3ee92f7ccb2ef9bc7b17fe,ACCESS_TOKEN,37,Bot,Bot,bot-heuristic
 15340477,chessmango-renovatebot,Renovate Bot,14,Bot,Bot,bot-heuristic
 25176792,project_32768625_bot_edf52e28af0831265a81d169371bd691,CI Push Secret,36,Bot,,bot-heuristic
 21319084,project_33574247_bot_1a527ae38b28926ab8e21a4be0e63d3a,CI/CD,91,Bot,,bot-heuristic
-21514250,project_22534149_bot_e5105adda1e798dc80395be84127e6c5,gitlab-ci-token-renew-yearly-because-gitlabs-security-ppl-are-stupid,182,Bot,,bot-heuristic
+8648715,dependabot-bot,dependabot-bot,300,Bot,Bot,bot-heuristic
+2176095,lineageos-gerrit,LineageOS Automation,167,Bot,,bot-heuristic
+11877147,checkupdates-bot,checkupdates bot,300,Bot,,bot-heuristic
+23473398,project_7776928_bot_6b7a8a5a875e565e3222a0660414b7a7,DANGER_GITLAB_API_TOKEN ,180,Bot,,bot-heuristic
+19793720,cusku,xmpp bot,48,Bot,,bot-heuristic
+3438261,appsemble-bot,Appsemble,126,Bot,Bot,bot-heuristic
+21427415,project_23992091_bot_c60320280f3845321885b998a341e464,gitlab-triage ,6,Bot,Bot,bot-heuristic
+21366739,group_5156166_bot_01b7643973a73589a1e80a8b594614fc,Teamscale API Token ,119,Bot,,bot-heuristic
+24612773,project_38220901_bot_06fae85042fefe73762b73ab695738b3,ci_worker ,18,Bot,,bot-heuristic
+24744240,project_14231319_bot_48b7ccee69c576ccb654455990f9d1f3,PROJECT_ACCESS_TOKEN ,9,Bot,,bot-heuristic
+21676785,gl-service-dev-secure-analyzers-automation,GitLab Dev Service - Secure Stage - Analyzers Automation,45,Bot,Bot,bot-heuristic
+21876750,project_21574229_bot_7f18e31c3568aa08d255526ea7faba9e,yaook-bot-release ,70,Bot,,bot-heuristic
+24964061,project_50632816_bot_153eedf4e1b1aadd86204fc33b452ddf,CI,45,Bot,Bot,bot-heuristic
+23435189,project_62883193_bot_a8947d366e07243920e6843dee1bd909,diplom,15,Bot,Bot,bot-heuristic
+23516019,project_63067391_bot_5382662ffb20a9d0bdb9c959a0f60d4d,GitHub sync ,31,Bot,Bot,bot-heuristic
+25166988,project_65521911_bot_e8c9579e7bb08e14f8eeb895fde77012,lea,5,Bot,Bot,bot-heuristic
+10783421,renovate-bot-bonusly,Renovate Bot,96,Bot,Bot,bot-heuristic
+19196978,Procingers-Renovate-Bot,Renovate Bot,179,Bot,Bot,bot-heuristic
 2256237,coqbot,coqbot,300,Bot,,GitHub common
 4000734,mender-test-bot,mender-test-bot,300,Bot,,GitHub common
 2423509,translatewiki,Translatewiki.net,8,Bot,,GitHub common

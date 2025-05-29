@@ -1,3 +1,9 @@
+"""
+This script fetches events from users that are not yet in the features' dataset. (But in the dataset)
+
+It then saves the events in a json file in the folder ../tests/gitlab_dataset/<origin>_events/<username>.json
+"""
+
 import json
 import os
 import pandas as pd
@@ -5,11 +11,15 @@ from tqdm import tqdm
 
 from gitbot_utils.gl_api import GitLabManager
 
-def fetch_and_save(manager, username, folder):
+def fetch_and_save(manager, username, id, folder):
     """
-    Fetch events for a given username and save them to a json file.
+    Fetch events for a given id and save them to a json file (<folder>/<username>.json).
     """
-    events = manager.query_events(username)
+    events = manager.query_events(id)
+
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+
     if events and len(events) >= manager.min_events:
         # Save events to json file
         with open(f"{folder}/{username}.json", "w") as f:
@@ -24,24 +34,31 @@ if __name__ == '__main__':
     from dotenv import load_dotenv
     load_dotenv()
 
-    key = os.getenv('GITLAB_API_KEY')
-    gl_manager = GitLabManager(api_key=key, max_queries=3, before="2025-01-21", after="2024-10-21")
-    folder = '../tests/gitlab_dataset/bot_heuristic_events'
+    key = None
+    gl_manager = GitLabManager(key, max_queries=3,
+                                 before="2025-01-21", after="2024-10-21")
 
     skipped = []
     # Load the dataset
     df_features = pd.read_csv("../resources/data/gitlab/gitlab_glmap_features.csv")
-    dataset_bot = pd.read_csv("../resources/data/gitlab/bot_heuristic_labelled.csv")
+    dataset = pd.read_csv("../resources/data/gitlab/dataset.csv")
 
-    # Get bots where username not in df_features
-    dataset = dataset_bot[~dataset_bot['username'].isin(df_features['contributor'])]
+    # Get users where username not yet in features
+    dataset = dataset[~dataset['username'].isin(df_features['contributor'])]
 
 
-    for user in tqdm(dataset['id'], desc="Fetching events", unit="user"):
+    for i, row in tqdm(dataset.iterrows(), total=len(dataset), desc="Fetching events", unit="user"):
+        folder = '../tests/gitlab_dataset/'
+        if row['origin'] == 'human':
+            folder += 'human_events'
+        elif row['origin'] == 'bot-heuristic':
+            folder += 'bot_heuristic_events'
+        else:
+            folder += 'github_common_events'
         # Fetch and save events
-        res = fetch_and_save(gl_manager, user, folder)
+        res = fetch_and_save(gl_manager, row['username'], row['id'], folder)
         if not res:
-            skipped.append(user)
+            skipped.append(row['username'])
 
     # Save skipped users to a file
     with open("skipped_humans.txt", "w") as f:

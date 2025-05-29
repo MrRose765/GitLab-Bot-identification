@@ -1,3 +1,10 @@
+"""
+For each user in the dataset that is not already in the features file:
+- Load the user's events from a JSON file.
+- Compute features using the GitLabManager.
+- Save the features in the features file.
+"""
+
 import json
 import os
 
@@ -12,7 +19,7 @@ def compute_features(manager, user_events, username):
     # Convert activities to DataFrame
     df = manager.activity_to_df(activities)
     # Extract features
-    df_feat = manager._extract_features(df, username)
+    df_feat = manager.extract_features(df, username)
     return df_feat
 
 
@@ -20,7 +27,11 @@ if __name__ == '__main__':
     gl_manager = GitLabManager()
     file = 'gitlab_features_glmap.csv'
 
-    dataset = pd.read_csv("../resources/data/gitlab/dataset.csv")
+    df_features = pd.read_csv("../resources/data/gitlab/gitlab_glmap_features.csv")
+    dataset_bot = pd.read_csv("../resources/data/gitlab/dataset.csv")
+
+    # Get bots where username not in df_features
+    dataset = dataset_bot[~dataset_bot['username'].isin(df_features['contributor'])]
 
     columns = ['contributor','label', 'origin',
                       'NA', 'NT', 'NR', 'NOR', 'ORR',
@@ -37,6 +48,7 @@ if __name__ == '__main__':
 
     # tqdm with iterrows
     for i, row in tqdm(dataset.iterrows(), total=len(dataset), desc="Processing users", unit="user"):
+        row['origin'] = 'bot-heuristic'
         username = row['username']
         path = '../tests/gitlab_dataset/'
         if row['origin'] == 'human':
