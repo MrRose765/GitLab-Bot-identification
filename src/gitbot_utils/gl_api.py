@@ -146,14 +146,14 @@ class GitLabManager(APIManager):
             # Step 1: Event to Action Mapping
             event_to_action_file = files("gitbot_utils").joinpath("config", "gl_event_to_action.json")
             action_mapping = load_json_file(event_to_action_file)
-            action_mapper = ActionMapper(action_mapping)
+            action_mapper = ActionMapper(action_mapping, progress_bar=False)
 
             actions = action_mapper.map(events)
 
             # Step 2: Action to Activity Mapping
             action_to_activity_file = files("gitbot_utils").joinpath("config", "gl_action_to_activity.json")
             activity_mapping = load_json_file(action_to_activity_file)
-            activity_mapper = ActivityMapper(activity_mapping)
+            activity_mapper = ActivityMapper(activity_mapping, progress_bar=False)
 
             activities = activity_mapper.map(actions)
 
