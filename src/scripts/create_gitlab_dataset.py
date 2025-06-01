@@ -201,7 +201,7 @@ if __name__ == '__main__':
     bimbis = mod.load_model("../resources/models/bimbis.joblib")
     bimbas = mod.load_model("../resources/models/bimbas.joblib")
 
-    repositories = pd.read_csv("../resources/data/gitlab/gitlab_10k_repositories.csv")
+    repositories = pd.read_csv("../resources/data/gitlab/gitlab_repositories.csv")
     repositories = repositories.sort_values(by='#stars', ascending=True).reset_index(drop=True)
 
     start = 1-1
