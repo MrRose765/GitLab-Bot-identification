@@ -8,16 +8,35 @@ from GenerateActivities import activity_identification
 from ghmap.mapping.action_mapper import ActionMapper
 from ghmap.mapping.activity_mapper import ActivityMapper
 from ghmap.utils import load_json_file
+
 from .api_manager import APIManager
 
 
 class GitHubManager(APIManager):
+    """
+    A class to manage interactions with the GitHub API for contributor activity analysis and bot detection.
+
+    Attributes:
+        api_key (str): The API key for GitHub authentication.
+        max_queries (int): Maximum number of queries to the API before rate limiting.
+        min_events (int): Minimum number of events required to consider a contributor.
+        ghmap (bool): Whether to use ghmap or rbmap for activity mapping.
+    """
 
     def __init__(self, api_key=None, max_queries=3, min_events=5, ghmap=True):
+        """
+        Initialize the GitHub API manager.
+
+        Parameters:
+            api_key: The API key to access the GitHub API
+            max_queries: The maximum number of queries to be made to the GitHub API
+            min_events: The minimum number of events required to consider a contributor
+            ghmap: Whether to use ghmap or rbmap for activity mapping (default is True)
+        """
         super().__init__(api_key,
-                         query_root= 'https://api.github.com',
-                         max_queries= max_queries,
-                         min_events= min_events)
+                         query_root='https://api.github.com',
+                         max_queries=max_queries,
+                         min_events=min_events)
         self.ghmap = ghmap
 
     def _query_event_page(self, contributor, page):
@@ -63,7 +82,7 @@ class GitHubManager(APIManager):
             query_remaining = int(response.headers['X-RateLimit-Remaining'])
             if query_remaining < self.max_queries:
                 reset_time = (datetime.fromtimestamp(int(response.headers['X-RateLimit-Reset']))
-                    .strftime('%Y-%m-%d %H:%M:%S'))
+                              .strftime('%Y-%m-%d %H:%M:%S'))
                 self.wait_reset(reset_time)
 
             return response.json()['type']
@@ -86,7 +105,7 @@ class GitHubManager(APIManager):
         # Step 1: Event to Action Mapping
         event_to_action_mapping_file = files("gitbot_utils").joinpath("config", "event_to_action.json")
         action_mapping = load_json_file(event_to_action_mapping_file)
-        action_mapper = ActionMapper(action_mapping, project_name=False)
+        action_mapper = ActionMapper(action_mapping, progress_bar=False)
 
         actions = action_mapper.map(events)
 
@@ -118,6 +137,7 @@ class GitHubManager(APIManager):
 if __name__ == '__main__':
     import os
     from dotenv import load_dotenv
+
     load_dotenv()
 
     KEY = os.getenv('GITHUB_API_KEY')

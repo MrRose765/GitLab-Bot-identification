@@ -16,6 +16,7 @@ class APIManager:
         api_key: The API key to use the API
         max_queries: The maximum number of pages to query
         min_events: The minimum number of events to query
+        query_root: The root URL of the API to query events (ex: 'https://api.github.com' for GitHub API)
     """
 
     def __init__(self, api_key, query_root, max_queries=3, min_events=5):
@@ -76,7 +77,6 @@ class APIManager:
         Parameters:
             reset_time: The reset time of the API in the format '%Y-%m-%d %H:%M:%S'
         """
-        # TODO: Check if we need a reset overhead time like in rabbit.
         reset_time = datetime.strptime(reset_time, '%Y-%m-%d %H:%M:%S')
         time_diff = (reset_time - datetime.now()).total_seconds()
         print(f"Waiting for {time_diff} seconds until the reset time.")
@@ -167,7 +167,7 @@ class APIManager:
         - DCAT: time taken to switch activity type (mean, median, std, gini and IQR),
         - NAT: number of activities per type (mean, median, std, gini and IQR).
         """
-        features = ['NA', 'NT', 'NR','NOR','ORR',
+        features = ['NA', 'NT', 'NR', 'NOR', 'ORR',
                     'NAR_mean', 'NAR_median', 'NAR_std', 'NAR_gini', 'NAR_IQR',
                     'NAT_mean', 'NAT_median', 'NAT_std', 'NAT_gini', 'NAT_IQR',
                     'NCAR_mean', 'NCAR_median', 'NCAR_std', 'NCAR_gini', 'NCAR_IQR',
@@ -188,18 +188,23 @@ class APIManager:
 
         df_feat = (
             convert_col_type(df_feat)
-            .rename(columns={'feat_NA':'NA', 'feat_NT':'NT', 'feat_NOR':'NOR', 'feat_ORR':'ORR'})
-            [features] # Reorder the columns
+            .rename(columns={'feat_NA': 'NA', 'feat_NT': 'NT', 'feat_NOR': 'NOR', 'feat_ORR': 'ORR'})
+            [features]  # Reorder the columns
             .sort_index()
             .set_index([[contributor]])
         )
 
         return df_feat
 
-
     def compute_features(self, contributor):
         """
         Compute the features of a contributor.
+
+        It follows these steps:
+        1. Query the events of the contributor.
+        2. Check if the number of events is less than `min_events`. If so, return None.
+        3. Convert the events to activities.
+        5. Extract the features from the activities.
         """
         events = self.query_events(contributor)
         if len(events) < self.min_events:

@@ -7,7 +7,7 @@ name = "gitbot_utils"
 version = "0.1.0"
 description = "Modules for GitHub/GitLab API management and bot detection"
 authors = [
-    { name = "Moreau Cyril", email = "cyril.moreau@student.umons.ac.be" }
+    { name = "Moreau Cyril", email = "cyril.moreau07@proton.me" }
 ]
 license = { text = "MIT" }
 dependencies = [

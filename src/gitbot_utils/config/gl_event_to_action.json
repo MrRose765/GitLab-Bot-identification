@@ -1,4 +1,11 @@
 {
+  "metadata": {
+    "version": "1.0",
+    "description": "Mapping of GitLab event types to action types.",
+    "author": "Cyril Moreau",
+    "created": "2025-03-25",
+    "license": "MIT"
+  },
   "parameters": {
     "event_type_key": "target_type",
     "create_at_key": "created_at",

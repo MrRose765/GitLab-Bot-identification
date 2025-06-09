@@ -1,3 +1,13 @@
+"""
+This script contains the functions used to extract bot and human contributors from GitLab repositories.
+
+For bots, it queries the members of each repository from a list and applies a heuristic to determine if they are bots.
+
+For humans, it queries the contributors of each repository based on their events and applies a heuristic to filter out bots.
+
+Then, two models (BIMBIS and BIMBAS) are used to predict the type of contributors (Bot or Human) based on their activity features.
+"""
+
 import os
 import random
 

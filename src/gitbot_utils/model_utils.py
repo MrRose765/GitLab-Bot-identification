@@ -21,6 +21,7 @@ def predict_contributor(features, model):
         proba = model.predict_proba(features)
     return rb.compute_confidence(proba[0][1])
 
+
 def load_model(model_path=None):
     """
     Load a .joblib model from a given path. If no path is provided, the default model from RABBIT is loaded.
