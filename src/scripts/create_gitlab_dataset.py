@@ -26,9 +26,9 @@ def bot_heuristic(username, name):
     Heuristic to determine if a contributor is a bot based on their username.
     """
     return (
-        any(bot_keyword in username for bot_keyword in ['bot', 'ci', 'io', 'token'])
-    or
-        any(bot_keyword in name for bot_keyword in ['bot', 'ci', 'io', 'token'])
+            any(bot_keyword in username for bot_keyword in ['bot', 'ci', 'io', 'token'])
+            or
+            any(bot_keyword in name for bot_keyword in ['bot', 'ci', 'io', 'token'])
     )
 
 
@@ -152,6 +152,7 @@ def analyse_contributor(contributor, gitlab_manager: GitLabManager, bimbis, bimb
         "label": label
     }
 
+
 def extract_bot_users(repository, contributor_manager, bimbis, bimbas):
     """
     Extract bot users from the active repositories.
@@ -173,6 +174,7 @@ def extract_bot_users(repository, contributor_manager, bimbis, bimbas):
     ]
 
     return pd.DataFrame(results)
+
 
 def extract_human_users(repository, contributor_manager, bimbis, bimbas, min_contributors=10):
     """
@@ -206,7 +208,7 @@ def extract_human_users(repository, contributor_manager, bimbis, bimbas, min_con
 
 if __name__ == '__main__':
     KEY = os.getenv("GITLAB_API_KEY")
-    manager = ContributorManager(KEY, max_queries= 3,
+    manager = ContributorManager(KEY, max_queries=3,
                                  before="2025-01-21", after="2024-10-21")
     bimbis = mod.load_model("../resources/models/bimbis.joblib")
     bimbas = mod.load_model("../resources/models/bimbas.joblib")
@@ -214,7 +216,7 @@ if __name__ == '__main__':
     repositories = pd.read_csv("../resources/data/gitlab/gitlab_repositories.csv")
     repositories = repositories.sort_values(by='#stars', ascending=True).reset_index(drop=True)
 
-    start = 1-1
+    start = 1 - 1
 
     df_result = None
     for index, row in repositories.iloc[start:].iterrows():

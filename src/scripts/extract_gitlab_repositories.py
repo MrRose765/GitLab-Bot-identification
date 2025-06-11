@@ -4,10 +4,11 @@ Script to extract repositories from the GitLab API.
 By default, it queries the /projects endpoint to get repositories in descending order of last activity.
 """
 
-import requests
-import pandas as pd
-from tqdm import tqdm
 import os
+
+import pandas as pd
+import requests
+from tqdm import tqdm
 
 
 def query_repository_page(page, api_key=None):
@@ -31,6 +32,7 @@ def query_repository_page(page, api_key=None):
         print(f"Error while querying page {page}: {response.status_code}")
         return None
 
+
 def parse_repository_data(repository):
     """
     Parse the repository data to extract relevant fields:
@@ -45,6 +47,7 @@ def parse_repository_data(repository):
         'id': repository.get('id', 0),
         '#stars': repository.get('star_count', 0)
     }
+
 
 def extract_repositories(api_key=None, max_queries=1000, path='gitlab_repositories.csv'):
     """
@@ -76,15 +79,9 @@ def extract_repositories(api_key=None, max_queries=1000, path='gitlab_repositori
 
 if __name__ == '__main__':
     from dotenv import load_dotenv
+
     load_dotenv()
     key = os.getenv('GITLAB_API_KEY')
 
     # Get 10k repositories
     extract_repositories(api_key=key, max_queries=1000)
-
-
-
-
-
-
-

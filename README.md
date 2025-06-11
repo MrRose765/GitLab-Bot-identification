@@ -7,6 +7,8 @@ at the [University of Mons](https://web.umons.ac.be/en/university/), conducted w
 The thesis is entitled *"Study of the Transferability of the BIMBAS Bot Detection Model between GitHub and GitLab"*, 
 and was carried out under the supervision of Professor [Tom Mens](https://staff.umons.ac.be/tom.mens/) and Doctor [Alexandre Decan](https://staff.umons.ac.be/alexandre.decan/indexEn.html).
 
+More information concerning installation and terminology can be found in the [wiki](https://github.com/MrRose765/GitLab-Bot-identification/wiki).
+
 ## Abstract
 Collaborative development platforms such as GitHub and GitLab play a central role in modern software projects, 
 facilitating code management, collaboration between developers and automation of repetitive tasks. 
@@ -21,56 +23,16 @@ comparable to those generated on GitHub. Using this tool, we built up a dataset 
 including both human and automated accounts. Evaluation of the BIMBAS model on this corpus, without modifying its architecture, 
 achieved a weighted F1-score of over 93%, demonstrating the model's transferability to GitLab.
 
-More information concerning installation and terminology can be found in the [wiki](https://github.com/MrRose765/GitLab-Bot-identification/wiki).
-
-## Installation
-It is recommended to create a virtual environment to install the dependencies.
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-The dependencies of this project are divided into two parts:
-1. **gitbot_utils**: This package contains utility modules to fetch events from GitHub or GitLab,
-compute activity mappings, and predict whether a user is a bot or not.
-2. Notebooks: Mainly contains analysis and experiments.
-
-You can only install the dependencies `gitbot_utils` if you are not interested in the notebooks.
-Be aware that installing only notebook dependencies will not be enough to run some of the notebooks.
-
-### Install gitbot_utils
-```bash
-pip install src/
-```
-
-### Install dependencies for notebooks
-```bash
-cd src/notebooks
-pip install -r requirements.txt
-```
-
-*Note*: The `requirements.txt` file contains the dependencies used only in the notebooks. (Mainly for plotting)
-
-
-## Terminology
-### Datasets
-- `Old`: Dataset used in [RABBIT-Replication Package](https://github.com/natarajan-chidambaram/BIMBAS_RABBIT_replication_package)
-- `New`: New dataset create for this project which consist of the contributors of the old dataset who
-had at least 5 events on January 5, 2025.
-- `GitLab`: Dataset from GitLab used in this project. (Not created yet)
-### Activity Mapping
-- `rbmap`: Activity mapping used in [RABBIT](https://github.com/natarajan-chidambaram/RABBIT)
-- `ghmap`: Activity mapping developed in [ghmap](https://github.com/uhourri/ghmap)
-- `glmap`: Activity mapping developed in this project for GitLab dataset. (based on [ghmap](https://github.com/uhourri/ghmap))
-
-### Models
-Each model is based on the bimbas architecture from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT).  
-To be clear, we will use the following convention to describe the models : `bimbas-M-D` where M is the mapping used and D is the training dataset.
-Then, the models that are used in this project are:
-
-- `BIMBAS`: `bimbas-rbmap-Old`  (Pretrained from [RABBIT](https://github.com/natarajan-chidambaram/RABBIT))
-- `BIMBASELINE`: `bimbas-rbmap-New`
-- `BIMBIS`: `bimbas-ghmap-New`
-- `BIMLAB`: `bimbas-glmap-GitLab`
-
-For example, `BIMBIS` is a model that has the architecture of **BIMBAS** but trained on the **new dataset** with the ghmap **activity mapping**.
+## Structure
+This package is structured as follows:
+- `gitbot_utils/`: Utility modules to fetch events from GitHub or GitLab and compute features.
+- `notebooks/`: Jupyter notebooks for analysis and experiments.
+- `resources/`: 
+  - `data/`: Datasets (mainly feature sets) used to test and train the models.
+  - `evals/`: Evaluation results and predictions of the models.
+  - `models/`: Models used in this project. (Saved with joblib)
+- `script/`: Python scripts maily used to generate the datasets.
+  - `create_gitlab_dataset.py`: Contains functions used to extract bot and human contributors from GitLab repositories.
+  - `extract_gitlab_repositories.py`: Used to extract the active repositories from GitLab.
+  - `save_user_events.py`: Fetch the events from each user and save them in a file. (1 file per user)
+  - `save_user_features.py`: Read the user events files and compute the features for each user. (Saves in csv)
